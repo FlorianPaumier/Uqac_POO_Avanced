@@ -36,7 +36,6 @@ public class RouteFactory implements Factory {
         int[] access = new int[count];
 
         for (int i = 0; i < count; i++) {
-            access[i] = (new Random()).nextInt(perimeter);
         }
         return access;
     }

@@ -14,5 +14,15 @@ public class Idiotoroute {
         int countVehicle = (new Random()).nextInt(8) + 3;
         ArrayList<Autoroute> autoroutes = (new RouteFactory(countRoad, 6000)).generate();
         ArrayList<Vehicle> vehicles = (new VehicleFactory(countVehicle)).generate();
+
+
+        while (){
+
+            try {
+
+            }catch (Exception e){
+
+            }
+        }
     }
 }
