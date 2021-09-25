@@ -1,7 +1,7 @@
-package Autoroute;
+package main.Autoroute;
 
-import Interface.Vehicle;
-import Vehicule.VehicleController;
+import main.Interface.Vehicle;
+import main.Vehicule.VehicleController;
 
 import java.util.ArrayList;
 

@@ -1,9 +1,10 @@
-package Autoroute;
+package main.Autoroute;
 
-import Interface.Vehicle;
+import main.Interface.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Autoroute {
 
@@ -49,7 +50,7 @@ public class Autoroute {
     }
 
     public ArrayList<Vehicle> removeVehicle(Vehicle vehicle){
-        List<Vehicle> vehicleList = this.vehicles.stream().filter(vehicle1 -> vehicle.getId() == vehicle1.getId()).toList();
+        List<Vehicle> vehicleList = this.vehicles.stream().filter(vehicle1 -> vehicle.getId() == vehicle1.getId()).collect(Collectors.toList());
         return new ArrayList<>(vehicleList);
     }
 

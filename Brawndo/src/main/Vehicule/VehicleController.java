@@ -1,7 +1,7 @@
-package Vehicule;
+package main.Vehicule;
 
-import Autoroute.Autoroute;
-import Interface.Vehicle;
+import main.Autoroute.Autoroute;
+import main.Interface.Vehicle;
 
 public class VehicleController {
 

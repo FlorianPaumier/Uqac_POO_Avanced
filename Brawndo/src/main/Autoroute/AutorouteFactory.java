@@ -1,16 +1,16 @@
-package Autoroute;
+package main.Autoroute;
 
-import Interface.Factory;
+import main.Interface.Factory;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class RouteFactory implements Factory {
+public class AutorouteFactory implements Factory {
 
     private int count;
     private int defaultRayon;
 
-    public RouteFactory(int count, int defaultRayon) {
+    public AutorouteFactory(int count, int defaultRayon) {
         this.count = count;
         this.defaultRayon = defaultRayon;
     }

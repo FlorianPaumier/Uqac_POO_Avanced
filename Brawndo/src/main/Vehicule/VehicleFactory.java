@@ -1,7 +1,7 @@
-package Vehicule;
+package main.Vehicule;
 
-import Interface.Factory;
-import Interface.Vehicle;
+import main.Interface.Factory;
+import main.Interface.Vehicle;
 
 import java.util.ArrayList;
 import java.util.Random;

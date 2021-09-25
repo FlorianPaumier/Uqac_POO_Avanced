@@ -1,4 +1,4 @@
-package Interface;
+package main.Interface;
 
 public abstract class Vehicle {
 
