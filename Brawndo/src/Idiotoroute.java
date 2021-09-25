@@ -1,4 +1,5 @@
 import Autoroute.Autoroute;
+import Autoroute.AutorouteController;
 import Autoroute.RouteFactory;
 import Interface.Vehicle;
 import Vehicule.VehicleFactory;
@@ -12,17 +13,19 @@ public class Idiotoroute {
 
         int countRoad = (new Random()).nextInt(4) + 2;
         int countVehicle = (new Random()).nextInt(8) + 3;
-        ArrayList<Autoroute> autoroutes = (new RouteFactory(countRoad, 6000)).generate();
+        ArrayList<Autoroute> autoroutes = (new RouteFactory(countRoad, 500)).generate();
         ArrayList<Vehicle> vehicles = (new VehicleFactory(countVehicle)).generate();
+        final int availableVehicle = vehicles.size();
+
+        boolean run = true;
 
 
-        while (){
-
+        do{
             try {
 
-            }catch (Exception e){
-
+            }catch (Exception accidentException){
+                run = false;
             }
-        }
+        }while (run);
     }
 }

@@ -3,7 +3,6 @@ package Autoroute;
 import Interface.Factory;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class RouteFactory implements Factory {
@@ -18,25 +17,30 @@ public class RouteFactory implements Factory {
 
     @Override
     public ArrayList<Autoroute> generate(){
-        ArrayList<Autoroute> autoroutes = new ArrayList<Autoroute>();
+        ArrayList<Autoroute> autoroutes = new ArrayList<>();
 
         for (int i = 0; i < this.count; i++) {
             int countAccess = (new Random()).nextInt(4)+2;
             Autoroute autoroute = (new Autoroute(countAccess));
             double speed = 0.5 + (new Random()).nextFloat() * (0.5 - 1.5);
             autoroute.setSpeed(speed);
-            autoroute.setAccess(generateAccess(countAccess, defaultRayon / (i + 1)));
+            autoroute.setRayon(this.defaultRayon);
+            autoroute.setPerimeter(Math.floor(2 * Math.PI * this.defaultRayon));
+            autoroute.setAccess(generateAccess(countAccess, this.defaultRayon / (i + 1)));
             autoroutes.add(autoroute);
         }
 
         return autoroutes;
     }
 
-    public int[] generateAccess(int count, int perimeter){
-        int[] access = new int[count];
+    public int[][] generateAccess(int count, int perimeter){
+        int[][] access = new int[2][count];
 
-        for (int i = 0; i < count; i++) {
+
+        for (int i = 1; i <= count; i++) {
+            access[0][i] = perimeter - (perimeter / i);
         }
+
         return access;
     }
 }

@@ -36,6 +36,7 @@ public class VehicleFactory implements Factory {
             case 2 -> vehicleClass = new Truck();
             default -> vehicleClass = new Car();
         }
+
         vehicleClass.setId(i + 1);
 
         return vehicleClass;

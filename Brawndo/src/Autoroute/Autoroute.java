@@ -7,27 +7,31 @@ import java.util.List;
 
 public class Autoroute {
 
-    private int[] access;
+    private int[][] access;
     private ArrayList<Vehicle> vehicles;
     private double speed;
     private ArrayList<Vehicle> vehiclesOut;
+    private double perimeter;
+    private int rayon;
+    private AutorouteController autorouteController;
 
     public Autoroute(int countAccess) {
-        this.access = new int[countAccess];
+        this.access = new int[2][countAccess];
         this.vehicles = new ArrayList<Vehicle>();
         this.vehiclesOut = new ArrayList<Vehicle>();
+        this.autorouteController = new AutorouteController(this);
     }
 
-    public int[] getAccess() {
+    public int[][] getAccess() {
         return access;
     }
 
-    public void setAccess(int[] access) {
+    public void setAccess(int[][] access) {
         this.access = access;
     }
 
-    public int[] addAccess(int position){
-        this.access[this.access.length - 1] = position;
+    public int[][] addAccess(int entry, int position){
+        this.access[entry][this.access.length - 1] = position;
         return this.access;
     }
 
@@ -63,5 +67,29 @@ public class Autoroute {
 
     public void addVehiclesOut(Vehicle vehiclesOut) {
         this.vehiclesOut.add(vehiclesOut);
+    }
+
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public void setPerimeter(double perimeter) {
+        this.perimeter = perimeter;
+    }
+
+    public int getRayon() {
+        return rayon;
+    }
+
+    public void setRayon(int rayon) {
+        this.rayon = rayon;
+    }
+
+    public AutorouteController getAutorouteController() {
+        return autorouteController;
+    }
+
+    public void setAutorouteController(AutorouteController autorouteController) {
+        this.autorouteController = autorouteController;
     }
 }
