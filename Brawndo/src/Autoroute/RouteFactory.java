@@ -37,7 +37,7 @@ public class RouteFactory implements Factory {
         int[][] access = new int[2][count];
 
 
-        for (int i = 1; i <= count; i++) {
+        for (int i = 1; i < count; i++) {
             access[0][i] = perimeter - (perimeter / i);
         }
 

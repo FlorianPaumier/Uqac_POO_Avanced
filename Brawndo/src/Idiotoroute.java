@@ -19,7 +19,6 @@ public class Idiotoroute {
 
         boolean run = true;
 
-
         do{
             try {
 
