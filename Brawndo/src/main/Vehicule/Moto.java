@@ -1,6 +1,6 @@
-package Vehicule;
+package main.Vehicule;
 
-import Interface.Vehicle;
+import main.Interface.Vehicle;
 
 public class Moto extends Vehicle {
 

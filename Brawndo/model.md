@@ -1,4 +1,4 @@
-Autoroute.Autoroute à 5 niveaux
+main.Autoroute.main.Autoroute à 5 niveaux
     => 2 à 6 accès
     => Décalage de n degrés
     => vitesse différentes
@@ -9,14 +9,14 @@ Autoroute.Autoroute à 5 niveaux
 Ne ralenti jamais
 Toujours vers le centre
 Si 1 tours on bouge
-Si accident => Exception
+Si accident => main.Exception
 
 Tous vehicules
 v vehicule !=
 accident + panne
 
 
-Idiotoroute
+main.Idiotoroute
     => Instancier 5 autoroutes
     => Instancier n vehicule
     => autorouteController
