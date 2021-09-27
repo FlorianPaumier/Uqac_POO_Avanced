@@ -16,22 +16,20 @@ public class Idioroute {
         ArrayList<Autoroute> autoroutes = (new AutorouteFactory(500)).generate();
         AutorouteController autorouteController = new AutorouteController(autoroutes);
 
-        VehicleFactory vehicleFactory = new VehicleFactory();
+        VehicleFactory vehicleFactory = new VehicleFactory(5000);
 
         boolean run = true;
 
         System.out.println("Run");
 
-        int iteration = 0;
         do {
             try {
-                if (iteration % 5000 == 0) {
-                    Vehicle v = vehicleFactory.generate();
-                    // Insert new vehicle with AutorouteController CLass
-                    autorouteController.insertVehicle(v);
-                }
+                Vehicle v = vehicleFactory.generate();
+
+                // Insert new vehicle with AutorouteController Class
+                autorouteController.insertVehicle(v);
+                // Next game tick
                 autorouteController.next();
-                iteration++;
             } catch (AccidentException e) {
                 System.out.println(e.getMessage());
                 run = false;

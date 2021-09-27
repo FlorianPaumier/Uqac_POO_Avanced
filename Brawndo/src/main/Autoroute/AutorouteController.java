@@ -32,7 +32,7 @@ public class AutorouteController {
      * Check if an accident occured each time vehicles move.
      * @throws AccidentException : Exception throw when an accident happen.
      */
-    public void checkAccident() throws AccidentException {
+    private void checkAccident() throws AccidentException {
         for(Autoroute autoroute : autoroutes) {
             // Check if incident
             ArrayList<Vehicle> arrayOfCollision = checkIfVehiclesAreInSamePosition(autoroute);
@@ -49,7 +49,7 @@ public class AutorouteController {
      * an empty list if there is no collision,
      * else an array containing crashed vehicles.
      */
-    public ArrayList<Vehicle> checkIfVehiclesAreInSamePosition(Autoroute a) {
+    private ArrayList<Vehicle> checkIfVehiclesAreInSamePosition(Autoroute a) {
         for(Vehicle v : a.getVehicles()) {
             List<Vehicle> crashed = a.getVehicles().stream().filter(vehicle -> vehicle.getPosition() == v.getPosition()).toList();
             // If superior 2 => 2 vehicles at the same position
@@ -74,6 +74,7 @@ public class AutorouteController {
      * @param v : vehicle to insert
      */
     public void insertVehicle(Vehicle v) {
+        if (v == null) return;
         changeVehicle(true, v, getBigger());
     }
 

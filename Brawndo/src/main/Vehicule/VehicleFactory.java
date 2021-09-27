@@ -8,16 +8,35 @@ import java.util.Random;
 public class VehicleFactory implements Factory {
 
     private int id;
+    private int tick;
+    private int timer;
 
-    public VehicleFactory() {
-        id = 0;
+    public VehicleFactory(int timer) {
+        this.id = 0;
+        this.tick = 0;
+        this.timer = timer;
     }
 
+    /**
+     * Generate a new vehicle each time timer is reached.
+     * @return null or new vehicle
+     */
     @Override
     public Vehicle generate() {
-        return generateVehicule(id);
+        Vehicle v = null;
+        if (tick % timer == 0) {
+            v = generateVehicule(id);
+        }
+        tick++;
+        return v;
     }
 
+
+    /**
+     * Create a new Vehicle instance
+     * @param i : id of the new vehicle
+     * @return the new vehicle
+     */
     private Vehicle generateVehicule(int i) {
         Vehicle vehicleClass = null;
 

@@ -4,8 +4,13 @@ import main.Interface.Vehicle;
 
 import java.util.ArrayList;
 
+
 public class AccidentException extends Exception {
 
+    /**
+     * Exception raised when an incident occurs on roads.
+     * @param collisionArray ArrayList of collisions vehicles
+     */
     public AccidentException(ArrayList<Vehicle> collisionArray) {
         super(generateMessage(collisionArray));
     }
