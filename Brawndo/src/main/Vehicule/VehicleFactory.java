@@ -3,29 +3,19 @@ package main.Vehicule;
 import main.Interface.Factory;
 import main.Interface.Vehicle;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class VehicleFactory implements Factory {
 
-    //private int countVehicle;
     private int id;
 
     public VehicleFactory() {
         id = 0;
-        //this.countVehicle = count;
     }
 
     @Override
     public Vehicle generate() {
-        /*ArrayList<Vehicle> vehicles = new ArrayList<>();*/
-        /*for (int i = 0; i < this.countVehicle; i++) {*/
-                Vehicle vehicleClass = generateVehicule(id);
-                /*vehicles.add(vehicleClass);*/
-        //}
-
-        /*return vehicles;*/
-        return vehicleClass;
+        return generateVehicule(id);
     }
 
     private Vehicle generateVehicule(int i) {

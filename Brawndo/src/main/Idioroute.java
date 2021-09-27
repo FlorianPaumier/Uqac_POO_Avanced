@@ -1,23 +1,22 @@
 package main;
 
 import main.Autoroute.Autoroute;
+import main.Autoroute.AutorouteController;
 import main.Autoroute.AutorouteFactory;
+import main.Exception.AccidentException;
 import main.Interface.Vehicle;
 import main.Vehicule.VehicleFactory;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Idioroute {
 
     public static void main(String[] args) {
 
-        /*int countRoad = (new Random()).nextInt(4) + 2;*/
-        /*int countVehicle = (new Random()).nextInt(8) + 3;*/
         ArrayList<Autoroute> autoroutes = (new AutorouteFactory(500)).generate();
-        /*ArrayList<Vehicle> vehicles = new VehicleFactory();*/
-        VehicleFactory vehicles = new VehicleFactory();
-        /*final int availableVehicle = vehicles.size();*/
+        AutorouteController autorouteController = new AutorouteController(autoroutes);
+
+        VehicleFactory vehicleFactory = new VehicleFactory();
 
         boolean run = true;
 
@@ -25,19 +24,21 @@ public class Idioroute {
 
         int iteration = 0;
         do {
-            if (iteration % 5000 == 0) {
-                Vehicle v = vehicles.generate();
-                // On insere le vehicule dans l'autoroute avec autoroute controller
-                // autorouteController.getBigger().insertVehicule(v);
-            }
-
             try {
-
-            } catch (Exception accidentException){
+                if (iteration % 5000 == 0) {
+                    Vehicle v = vehicleFactory.generate();
+                    // Insert new vehicle with AutorouteController CLass
+                    autorouteController.insertVehicle(v);
+                }
+                autorouteController.next();
+                iteration++;
+            } catch (AccidentException e) {
+                System.out.println(e.getMessage());
                 run = false;
             }
-
-            iteration++;
+            catch (Exception e) {
+                System.out.println("Unknown error occured.");
+            }
         } while (run);
 
         System.out.println("Stop");
