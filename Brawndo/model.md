@@ -16,7 +16,7 @@ v vehicule !=
 accident + panne
 
 
-main.Idiotoroute
+main.Idioroute
     => Instancier 5 autoroutes
     => Instancier n vehicule
     => autorouteController

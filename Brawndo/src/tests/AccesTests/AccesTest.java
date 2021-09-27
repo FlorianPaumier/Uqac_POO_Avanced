@@ -17,34 +17,28 @@ public class AccesTest {
     @Test
     public void constructorTest() {
 
-        List<Integer> emptyList = new LinkedList<Integer>();
+        List<Acces> accesList = new LinkedList<Acces>();
 
-        Acces acces = new Acces(1);
-        assertEquals(emptyList, acces.getGates());
+        for (int i = 0; i < 6 ; i++) {
+            accesList.add(new Acces());
+        }
 
-        Acces acces2 = new Acces(7);
-        assertEquals(emptyList, acces2.getGates());
-
-        Acces acces3 = new Acces(-4);
-        assertEquals(emptyList, acces3.getGates());
-
-        Acces acces4 = new Acces(4);
-        assertEquals(4, acces4.getGates().size());
+        for(Acces acc : accesList) {
+            assertTrue(acc.getGates().size() < 7 && acc.getGates().size() > 1);
+        }
     }
 
     @Test
     public void anglesTest() {
-        final int gatesNb = 5;
-        Acces acces = new Acces(gatesNb);
+
+        Acces acces = new Acces();
+
+        int gatesNb = acces.getGates().size();
+
         final Integer angleDifferentiel = 360 / gatesNb;
 
         assertEquals(angleDifferentiel, acces.getAngleDifferentiel());
         assertTrue(angleDifferentiel > acces.getAngleInitial() && 0 < acces.getAngleInitial());
         assertEquals(gatesNb, acces.getGates().size());
-
-        Acces acces2 = new Acces(1);
-
-        assertEquals(0, (int)acces2.getAngleDifferentiel());
-        assertEquals(0, acces2.getGates().size());
     }
 }

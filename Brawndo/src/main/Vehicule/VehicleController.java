@@ -3,18 +3,34 @@ package main.Vehicule;
 import main.Autoroute.Autoroute;
 import main.Interface.Vehicle;
 
+import java.util.ArrayList;
+
 public class VehicleController {
 
-    private Autoroute autoroute;
+    private ArrayList<Vehicle> vehicles;
 
-    public VehicleController(Autoroute autoroute){
-        this.autoroute = autoroute;
+    // VehicleController acts on all vehicles
+    public VehicleController(ArrayList<Vehicle> vehicles){
+        this.vehicles = vehicles;
     }
 
-    public void move(Vehicle vehicle){
-        int nextPostion = (int) Math.floor(autoroute.getSpeed() * vehicle.getSpeed() + vehicle.getPosition());
+    // Move all vehicles. Each vehicle final speed depend of current autoroute it is driving.
+    public void move(ArrayList<Autoroute> autoroutes) {
+        for (Autoroute autoroute : autoroutes) {
+            for (Vehicle vehicle : autoroute.getVehicles()) {
+                moveOneVehicle(vehicle.getId(), autoroute.getSpeed());
+            }
+        }
+    }
 
-
-        vehicle.setPosition(1);
+    // Move just one vehicle following autoroute speed
+    private void moveOneVehicle(int id, double autorouteSpeed) {
+        Vehicle vehicle = vehicles
+                .stream()
+                .filter(vehicle_ -> vehicle_.getId() == id)
+                .findFirst()
+                .get();
+        int nextPostion = (int) Math.floor(autorouteSpeed * vehicle.getSpeed() + vehicle.getPosition());
+        vehicle.setPosition(nextPostion);
     }
 }

@@ -28,9 +28,7 @@ public abstract class Vehicle {
         return position;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
+    public void setPosition(int position) { this.position = position; }
 
     public float getSpeed() {
         return speed;

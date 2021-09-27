@@ -8,21 +8,24 @@ import java.util.Random;
 
 public class VehicleFactory implements Factory {
 
-    private int countVehicle;
+    //private int countVehicle;
+    private int id;
 
-    public VehicleFactory(int count) {
-        this.countVehicle = count;
+    public VehicleFactory() {
+        id = 0;
+        //this.countVehicle = count;
     }
 
     @Override
-    public ArrayList<Vehicle> generate() {
-        ArrayList<Vehicle> vehicles = new ArrayList<>();
-        for (int i = 0; i < this.countVehicle; i++) {
-                Vehicle vehicleClass = generateVehicule(i);
-                vehicles.add(vehicleClass);
-        }
+    public Vehicle generate() {
+        /*ArrayList<Vehicle> vehicles = new ArrayList<>();*/
+        /*for (int i = 0; i < this.countVehicle; i++) {*/
+                Vehicle vehicleClass = generateVehicule(id);
+                /*vehicles.add(vehicleClass);*/
+        //}
 
-        return vehicles;
+        /*return vehicles;*/
+        return vehicleClass;
     }
 
     private Vehicle generateVehicule(int i) {
@@ -37,7 +40,8 @@ public class VehicleFactory implements Factory {
             default -> vehicleClass = new Car();
         }
 
-        vehicleClass.setId(i + 1);
+        id = i++;
+        vehicleClass.setId(id);
 
         return vehicleClass;
     }
