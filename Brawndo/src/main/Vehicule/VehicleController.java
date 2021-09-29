@@ -24,6 +24,14 @@ public class VehicleController {
      * @param autoroutes : list of autoroutes
      */
     public void move(final ArrayList<Autoroute> autoroutes) {
+        autoroutes.forEach(autoroute -> {
+            autoroute.getVehicles().forEach(vehicle -> {
+                if (!this.vehicles.contains(vehicle)){
+                    vehicles.add(vehicle);
+                }
+            });
+        });
+
         for (Autoroute autoroute : autoroutes) {
             for (Vehicle vehicle : autoroute.getVehicles()) {
                 moveOneVehicle(vehicle.getId(), autoroute.getSpeed());
@@ -43,7 +51,6 @@ public class VehicleController {
         Optional<Vehicle> stream = vehicles
                 .stream()
                 .filter(vehicle_ -> {
-                    System.out.println("Search " + vehicle_.getId());
                     return vehicle_.getId() == id;
                 })
                 .findFirst();
