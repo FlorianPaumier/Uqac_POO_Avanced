@@ -9,37 +9,38 @@ import java.util.stream.Collectors;
 
 public class Autoroute {
 
+    private int id;
     private Acces access;
     private ArrayList<Vehicle> vehicles;
     private double speed;
     private ArrayList<Vehicle> vehiclesOut;
     private double perimeter;
     private int rayon;
-    private AutorouteController autorouteController;
 
     public Autoroute() {
+        this.access = null;
         this.vehicles = new ArrayList<Vehicle>();
         this.vehiclesOut = new ArrayList<Vehicle>();
-        this.autorouteController = new AutorouteController(this);
     }
+
+    public void setId(int id) { this.id = id; }
+
+    public int getId() { return this.id; }
 
     public Acces getAccess() {
         return access;
     }
 
-    public Autoroute setAccess(Acces access) {
+    public void setAccess(Acces access) {
         this.access = access;
-        return this;
     }
-
 
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public Autoroute setVehicles(ArrayList<Vehicle> vehicles) {
+    public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
-        return null;
     }
 
     public ArrayList<Vehicle> addVehicle(Vehicle vehicle){
@@ -56,9 +57,8 @@ public class Autoroute {
         return speed;
     }
 
-    public Autoroute setSpeed(double speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
-        return null;
     }
 
     public ArrayList<Vehicle> getVehiclesOut() {
@@ -73,26 +73,15 @@ public class Autoroute {
         return perimeter;
     }
 
-    public Autoroute setPerimeter(double perimeter) {
+    public void setPerimeter(double perimeter) {
         this.perimeter = perimeter;
-        return null;
     }
 
     public int getRayon() {
         return rayon;
     }
 
-    public Autoroute setRayon(int rayon) {
+    public void setRayon(int rayon) {
         this.rayon = rayon;
-        return null;
-    }
-
-    public AutorouteController getAutorouteController() {
-        return autorouteController;
-    }
-
-    public Autoroute setAutorouteController(AutorouteController autorouteController) {
-        this.autorouteController = autorouteController;
-        return null;
     }
 }

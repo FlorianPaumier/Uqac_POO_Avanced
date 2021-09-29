@@ -9,12 +9,17 @@ import java.util.Random;
 
 public class VehicleFactory implements Factory {
 
-    private int countVehicle;
+    private int id;
+    private int tick;
+    private int timer;
+    private int maxVehicle = 5;
     private ArrayList<Class<? extends Vehicle>> vehiclesClass;
 
-    public VehicleFactory(int count) {
+    public VehicleFactory(int timer) {
+        this.id = 0;
+        this.tick = 0;
+        this.timer = timer;
 
-        this.countVehicle = count;
         this.vehiclesClass = new ArrayList<>() {
             {
                 add(Car.class);
@@ -24,18 +29,31 @@ public class VehicleFactory implements Factory {
         };
     }
 
+    /**
+     * Generate a new vehicle each time timer is reached.
+     *
+     * @return null or new vehicle
+     */
     @Override
-    public ArrayList<Vehicle> generate() {
-        ArrayList<Vehicle> vehicles = new ArrayList<>();
-        for (int i = 0; i < this.countVehicle; i++) {
-                Vehicle vehicleClass = generateVehicle(i);
-                vehicles.add(vehicleClass);
-        }
+    public Vehicle generate() {
+        Vehicle v = null;
 
-        return vehicles;
+        System.out.println("Tour n°" + tick);
+        if (tick % timer == 0 && id <= 5 ) {
+            v = generateVehicule(id);
+        }
+        tick++;
+        return v;
     }
 
-    private Vehicle generateVehicle(int i) {
+
+    /**
+     * Create a new Vehicle instance
+     *
+     * @param i : id of the new vehicle
+     * @return the new vehicle
+     */
+    private Vehicle generateVehicule(int i) {
         Vehicle vehicleClass = null;
 
         int index = (new Random()).nextInt(this.vehiclesClass.size() - 1);
@@ -46,8 +64,10 @@ public class VehicleFactory implements Factory {
             e.printStackTrace();
         }
 
-        vehicleClass.setId(i + 1);
+        ++this.id;
+        vehicleClass.setId(++i);
 
+        System.out.println("Création du véhicule n°" + vehicleClass.getId());
         return vehicleClass;
     }
 }

@@ -9,7 +9,13 @@ public class Acces {
     private int angleDifferentiel = 0;
     private List<Integer> gates = new LinkedList<Integer>();
 
-    public Acces(Integer nb) {
+    public Acces() {
+
+        final int GATES_NB_MAX = 6;
+        final int GATES_NB_MIN = 2;
+
+        Integer nb = (int)Math.floor(Math.random() * (GATES_NB_MAX - GATES_NB_MIN + 1) + GATES_NB_MIN);
+
         if (nb > 6 || nb < 2)
             return;
 

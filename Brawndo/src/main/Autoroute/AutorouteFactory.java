@@ -10,27 +10,36 @@ public class AutorouteFactory implements Factory {
 
     private int count;
     private int defaultRayon;
+    private Acces acces;
 
-    public AutorouteFactory(int count, int defaultRayon) {
-        this.count = count;
+    public AutorouteFactory(int defaultRayon) {
+        this.count = 5;
         this.defaultRayon = defaultRayon;
+        this.acces = new Acces();
     }
 
     @Override
-    public ArrayList<Autoroute> generate() {
+    public ArrayList<Autoroute> generate(){
         ArrayList<Autoroute> autoroutes = new ArrayList<>();
 
         for (int i = 0; i < this.count; i++) {
-            int countAccess = (new Random()).nextInt(4) + 2;
+            Autoroute autoroute = new Autoroute();
             double speed = 0.5 + (new Random()).nextFloat() * (0.5 - 1.5);
-            Autoroute autoroute = (new Autoroute());
             autoroute.setSpeed(speed);
             autoroute.setRayon(this.defaultRayon);
             autoroute.setPerimeter(Math.floor(2 * Math.PI * this.defaultRayon));
-            autoroute.setAccess(new Acces(countAccess));
+            autoroute.setAccess(acces);
+            autoroute.setId(i);
+
             autoroutes.add(autoroute);
         }
 
         return autoroutes;
     }
+
+    public int getCount() { return count; }
+
+    public int getDefaultRayon() { return defaultRayon; }
+
+    public Acces getAcces() { return acces; }
 }
