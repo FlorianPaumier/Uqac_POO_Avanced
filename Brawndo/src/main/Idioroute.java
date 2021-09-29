@@ -16,7 +16,7 @@ public class Idioroute {
         System.out.println("Création du système");
         ArrayList<Autoroute> autoroutes = (new AutorouteFactory(500)).generate();
         AutorouteController autorouteController = new AutorouteController(autoroutes);
-        VehicleFactory vehicleFactory = new VehicleFactory(5);
+        VehicleFactory vehicleFactory = new VehicleFactory(3);
         boolean run = true;
         int turn = 10;
 
@@ -26,7 +26,8 @@ public class Idioroute {
             try {
                 Vehicle v = vehicleFactory.generate();
                 // Insert new vehicle with AutorouteController Class
-                if (v != null) autorouteController.insertVehicle(v);
+                autorouteController.insertVehicle(v);
+
                 // Next game tick
                 autorouteController.next();
             } catch (AccidentException e) {

@@ -39,7 +39,7 @@ public class VehicleFactory implements Factory {
         Vehicle v = null;
 
         System.out.println("Tour n°" + tick);
-        if (tick % timer == 0 && id <= 5 ) {
+        if (tick % timer == 0) {
             v = generateVehicule(id);
         }
         tick++;

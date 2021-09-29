@@ -51,7 +51,6 @@ public class VehicleController {
         if (stream.isPresent()){
             Vehicle vehicle = stream.get();
 
-
             double moveDist = autorouteSpeed * vehicle.getSpeed();
             int nextPostion = (int) Math.floor( + vehicle.getPosition());
             vehicle.setPosition(nextPostion);

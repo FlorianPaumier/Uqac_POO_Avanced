@@ -65,7 +65,7 @@ public class AutorouteController {
      */
     public void next() throws AccidentException {
         final ArrayList<Autoroute> autoroutesCopy = new ArrayList<>(autoroutes);
-        vehicleController.move(autoroutes);
+        this.vehicleController.move(autoroutes);
         checkAccident();
     }
 
@@ -75,7 +75,8 @@ public class AutorouteController {
      */
     public void insertVehicle(Vehicle v) {
         if (v == null) return;
-        changeVehicle(true, v, getBigger());
+        System.out.println("Insert Vehicle " + v.getId());
+        this.changeVehicle(true, v, getBigger());
     }
 
     /**
@@ -88,17 +89,17 @@ public class AutorouteController {
      */
     private void changeVehicle(boolean add, Vehicle v, Autoroute a) {
         try {
-            final Autoroute autoroute = autoroutes
-                    .stream()
-                    .filter(autoroute_ -> autoroute_.getId() == a.getId())
-                    .findFirst()
-                    .get();
-            ArrayList<Vehicle> vehicles = autoroute.getVehicles();
+            if (this.autoroutes.contains(a)){
+                int index = this.autoroutes.indexOf(a);
+                Autoroute currentAutoroute = this.autoroutes.get(index);
 
-            if (add == true) vehicles.add(v);
-            else vehicles.remove(v);
 
-            autoroute.setVehicles(vehicles);
+                if (add) currentAutoroute.addVehicle(v);
+                else currentAutoroute.removeVehicle(v);
+
+                System.out.println("Size Vehicle " + currentAutoroute.getVehicles().size());
+                this.autoroutes.set(index, currentAutoroute);
+            }
         } catch (Exception e) {
             System.out.println("Change vehicle : "
                     + (add == true ? "add " : "remove ")
