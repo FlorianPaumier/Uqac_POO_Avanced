@@ -1,5 +1,6 @@
 package main.Autoroute;
 
+import main.Acces.Acces;
 import main.Interface.Vehicle;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class Autoroute {
 
-    private int[][] access;
+    private Acces access;
     private ArrayList<Vehicle> vehicles;
     private double speed;
     private ArrayList<Vehicle> vehiclesOut;
@@ -16,32 +17,29 @@ public class Autoroute {
     private int rayon;
     private AutorouteController autorouteController;
 
-    public Autoroute(int countAccess) {
-        this.access = new int[2][countAccess];
+    public Autoroute() {
         this.vehicles = new ArrayList<Vehicle>();
         this.vehiclesOut = new ArrayList<Vehicle>();
         this.autorouteController = new AutorouteController(this);
     }
 
-    public int[][] getAccess() {
+    public Acces getAccess() {
         return access;
     }
 
-    public void setAccess(int[][] access) {
+    public Autoroute setAccess(Acces access) {
         this.access = access;
+        return this;
     }
 
-    public int[][] addAccess(int entry, int position){
-        this.access[entry][this.access.length - 1] = position;
-        return this.access;
-    }
 
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public void setVehicles(ArrayList<Vehicle> vehicles) {
+    public Autoroute setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
+        return null;
     }
 
     public ArrayList<Vehicle> addVehicle(Vehicle vehicle){
@@ -58,8 +56,9 @@ public class Autoroute {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public Autoroute setSpeed(double speed) {
         this.speed = speed;
+        return null;
     }
 
     public ArrayList<Vehicle> getVehiclesOut() {
@@ -74,23 +73,26 @@ public class Autoroute {
         return perimeter;
     }
 
-    public void setPerimeter(double perimeter) {
+    public Autoroute setPerimeter(double perimeter) {
         this.perimeter = perimeter;
+        return null;
     }
 
     public int getRayon() {
         return rayon;
     }
 
-    public void setRayon(int rayon) {
+    public Autoroute setRayon(int rayon) {
         this.rayon = rayon;
+        return null;
     }
 
     public AutorouteController getAutorouteController() {
         return autorouteController;
     }
 
-    public void setAutorouteController(AutorouteController autorouteController) {
+    public Autoroute setAutorouteController(AutorouteController autorouteController) {
         this.autorouteController = autorouteController;
+        return null;
     }
 }

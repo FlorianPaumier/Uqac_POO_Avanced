@@ -1,5 +1,6 @@
 package main.Autoroute;
 
+import main.Acces.Acces;
 import main.Interface.Factory;
 
 import java.util.ArrayList;
@@ -16,31 +17,20 @@ public class AutorouteFactory implements Factory {
     }
 
     @Override
-    public ArrayList<Autoroute> generate(){
+    public ArrayList<Autoroute> generate() {
         ArrayList<Autoroute> autoroutes = new ArrayList<>();
 
         for (int i = 0; i < this.count; i++) {
-            int countAccess = (new Random()).nextInt(4)+2;
-            Autoroute autoroute = (new Autoroute(countAccess));
+            int countAccess = (new Random()).nextInt(4) + 2;
             double speed = 0.5 + (new Random()).nextFloat() * (0.5 - 1.5);
+            Autoroute autoroute = (new Autoroute());
             autoroute.setSpeed(speed);
             autoroute.setRayon(this.defaultRayon);
             autoroute.setPerimeter(Math.floor(2 * Math.PI * this.defaultRayon));
-            autoroute.setAccess(generateAccess(countAccess, this.defaultRayon / (i + 1)));
+            autoroute.setAccess(new Acces(countAccess));
             autoroutes.add(autoroute);
         }
 
         return autoroutes;
-    }
-
-    public int[][] generateAccess(int count, int perimeter){
-        int[][] access = new int[2][count];
-
-
-        for (int i = 1; i < count; i++) {
-            access[0][i] = perimeter - (perimeter / i);
-        }
-
-        return access;
     }
 }

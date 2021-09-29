@@ -11,10 +11,15 @@ public class VehicleController {
         this.autoroute = autoroute;
     }
 
-    public void move(Vehicle vehicle){
-        int nextPostion = (int) Math.floor(autoroute.getSpeed() * vehicle.getSpeed() + vehicle.getPosition());
+    public boolean move(Vehicle vehicle){
+        int nextPosition = (int) Math.floor(autoroute.getSpeed() * vehicle.getSpeed() + vehicle.getPosition());
 
+        if (autoroute.getPerimeter() < nextPosition){
+            nextPosition = (int) Math.round(nextPosition - autoroute.getPerimeter());
+        }
 
-        vehicle.setPosition(1);
+        vehicle.setPosition(nextPosition);
+
+        return vehicle.getPosition() > vehicle.getStartPosition();
     }
 }
