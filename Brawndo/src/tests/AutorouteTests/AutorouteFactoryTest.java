@@ -1,13 +1,14 @@
-package AutorouteTests;
-
-import static org.junit.Assert.*;
+package tests.AutorouteTests;
 
 import main.Acces.Acces;
 import main.Autoroute.Autoroute;
 import main.Autoroute.AutorouteFactory;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AutorouteFactoryTest {
 

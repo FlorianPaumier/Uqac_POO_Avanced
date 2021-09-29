@@ -4,6 +4,7 @@ import main.Autoroute.Autoroute;
 import main.Interface.Vehicle;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class VehicleController {
 
@@ -37,12 +38,26 @@ public class VehicleController {
      * @param autorouteSpeed
      */
     private void moveOneVehicle(int id, double autorouteSpeed) {
-        Vehicle vehicle = vehicles
+        System.out.println("Move vehicle " + id);
+
+        Optional<Vehicle> stream = vehicles
                 .stream()
-                .filter(vehicle_ -> vehicle_.getId() == id)
-                .findFirst()
-                .get();
-        int nextPostion = (int) Math.floor(autorouteSpeed * vehicle.getSpeed() + vehicle.getPosition());
-        vehicle.setPosition(nextPostion);
+                .filter(vehicle_ -> {
+                    System.out.println("Search " + vehicle_.getId());
+                    return vehicle_.getId() == id;
+                })
+                .findFirst();
+
+        if (stream.isPresent()){
+            Vehicle vehicle = stream.get();
+
+
+            double moveDist = autorouteSpeed * vehicle.getSpeed();
+            int nextPostion = (int) Math.floor( + vehicle.getPosition());
+            vehicle.setPosition(nextPostion);
+            System.out.println(String.format("Le vehicule n°%d avance de %f", vehicle.getId(), moveDist));
+        }
+
+        System.out.println(stream);
     }
 }

@@ -4,8 +4,7 @@ import main.Interface.Vehicle;
 
 import java.util.ArrayList;
 
-
-public class AccidentException extends Exception {
+public class AccidentException extends Throwable {
 
     /**
      * Exception raised when an incident occurs on roads.

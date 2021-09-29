@@ -3,6 +3,8 @@ package main.Vehicule;
 import main.Interface.Factory;
 import main.Interface.Vehicle;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class VehicleFactory implements Factory {
@@ -10,21 +12,34 @@ public class VehicleFactory implements Factory {
     private int id;
     private int tick;
     private int timer;
+    private int maxVehicle = 5;
+    private ArrayList<Class<? extends Vehicle>> vehiclesClass;
 
     public VehicleFactory(int timer) {
         this.id = 0;
         this.tick = 0;
         this.timer = timer;
+
+        this.vehiclesClass = new ArrayList<>() {
+            {
+                add(Car.class);
+                add(Moto.class);
+                add(Truck.class);
+            }
+        };
     }
 
     /**
      * Generate a new vehicle each time timer is reached.
+     *
      * @return null or new vehicle
      */
     @Override
     public Vehicle generate() {
         Vehicle v = null;
-        if (tick % timer == 0) {
+
+        System.out.println("Tour n°" + tick);
+        if (tick % timer == 0 && id <= 5 ) {
             v = generateVehicule(id);
         }
         tick++;
@@ -34,24 +49,25 @@ public class VehicleFactory implements Factory {
 
     /**
      * Create a new Vehicle instance
+     *
      * @param i : id of the new vehicle
      * @return the new vehicle
      */
     private Vehicle generateVehicule(int i) {
         Vehicle vehicleClass = null;
 
-        int index = (new Random()).nextInt(2);
+        int index = (new Random()).nextInt(this.vehiclesClass.size() - 1);
 
-        switch (index) {
-            case 0 -> vehicleClass = new Moto();
-            case 1 -> vehicleClass = new Car();
-            case 2 -> vehicleClass = new Truck();
-            default -> vehicleClass = new Car();
+        try {
+            vehicleClass = this.vehiclesClass.get(index).getDeclaredConstructor().newInstance();
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            e.printStackTrace();
         }
 
-        id = i++;
-        vehicleClass.setId(id);
+        ++this.id;
+        vehicleClass.setId(++i);
 
+        System.out.println("Création du véhicule n°" + vehicleClass.getId());
         return vehicleClass;
     }
 }

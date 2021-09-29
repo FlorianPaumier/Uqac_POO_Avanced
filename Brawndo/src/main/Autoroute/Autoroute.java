@@ -4,6 +4,8 @@ import main.Acces.Acces;
 import main.Interface.Vehicle;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Autoroute {
 
@@ -39,6 +41,16 @@ public class Autoroute {
 
     public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
+    }
+
+    public ArrayList<Vehicle> addVehicle(Vehicle vehicle){
+        this.vehicles.add(vehicle);
+        return this.vehicles;
+    }
+
+    public ArrayList<Vehicle> removeVehicle(Vehicle vehicle){
+        List<Vehicle> vehicleList = this.vehicles.stream().filter(vehicle1 -> vehicle.getId() == vehicle1.getId()).collect(Collectors.toList());
+        return new ArrayList<>(vehicleList);
     }
 
     public double getSpeed() {
