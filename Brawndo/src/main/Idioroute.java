@@ -4,6 +4,7 @@ import main.Autoroute.Autoroute;
 import main.Autoroute.AutorouteController;
 import main.Autoroute.AutorouteFactory;
 import main.Exception.AccidentException;
+import main.Exception.PanneException;
 import main.Interface.Vehicle;
 import main.Vehicule.VehicleFactory;
 
@@ -18,7 +19,6 @@ public class Idioroute {
         AutorouteController autorouteController = new AutorouteController(autoroutes);
         VehicleFactory vehicleFactory = new VehicleFactory(3);
         boolean run = true;
-        int turn = 10;
 
         System.out.println("Run");
 
@@ -30,7 +30,7 @@ public class Idioroute {
 
                 // Next game tick
                 autorouteController.next();
-            } catch (AccidentException e) {
+            } catch (AccidentException | PanneException e) {
                 System.out.println(e.getMessage());
                 run = false;
             }
@@ -39,9 +39,7 @@ public class Idioroute {
                 run = false;
             }
 
-        //} while (false);
-            turn--;
-        } while (turn > 0);
+        } while (run);
 
         System.out.println("Stop");
     }

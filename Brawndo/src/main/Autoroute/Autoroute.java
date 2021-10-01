@@ -69,6 +69,11 @@ public class Autoroute {
         this.vehiclesOut.add(vehiclesOut);
     }
 
+
+    public ArrayList<Vehicle> removeVehicleOut(Vehicle vehicle){
+        List<Vehicle> vehicleList = this.vehiclesOut.stream().filter(vehicle1 -> vehicle.getId() == vehicle1.getId()).collect(Collectors.toList());
+        return new ArrayList<>(vehicleList);
+    }
     public double getPerimeter() {
         return perimeter;
     }

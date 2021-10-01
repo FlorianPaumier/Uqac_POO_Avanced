@@ -1,13 +1,12 @@
 package main.Autoroute;
 
+import main.Acces.Acces;
 import main.Exception.AccidentException;
+import main.Exception.PanneException;
 import main.Interface.Vehicle;
 import main.Vehicule.VehicleController;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class AutorouteController {
 
@@ -63,7 +62,7 @@ public class AutorouteController {
      * Vehicles controller cannot change autoroutes throught association
      * @throws AccidentException
      */
-    public void next() throws AccidentException {
+    public void next() throws AccidentException, PanneException {
         final ArrayList<Autoroute> autoroutesCopy = new ArrayList<>(autoroutes);
         this.vehicleController.move(autoroutes);
         checkAccident();
@@ -94,7 +93,14 @@ public class AutorouteController {
                 Autoroute currentAutoroute = this.autoroutes.get(index);
 
 
-                if (add) currentAutoroute.addVehicle(v);
+                if (add) {
+                    Acces access = currentAutoroute.getAccess();
+                    int indexGate = (new Random()).nextInt(access.getGates().size());
+                    int gates = access.getGates().get(indexGate);
+                    int position = getGatePosition(gates, currentAutoroute.getRayon());
+                    v.setStartPosition(position);
+                    currentAutoroute.addVehicle(v);
+                }
                 else currentAutoroute.removeVehicle(v);
 
                 System.out.println("Size Vehicle " + currentAutoroute.getVehicles().size());
@@ -127,5 +133,9 @@ public class AutorouteController {
         });
 
         return autoroutesCopy.get(0);
+    }
+
+    public static int getGatePosition(int gate,int rayon ){
+        return (int)((gate/360) * 2 * Math.PI * rayon);
     }
 }

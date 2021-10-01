@@ -6,6 +6,7 @@ public abstract class Vehicle {
     private int startPosition;
     private int position;
     private float speed;
+    private boolean madeTurn;
     private double coefAccident = 0.1;
 
     public int getId() {
@@ -45,4 +46,10 @@ public abstract class Vehicle {
     public void setCoefAccident(double coefAccident) {
         this.coefAccident = coefAccident;
     }
+
+    public void madeATurn(boolean b) {
+        madeTurn = b;
+    }
+
+    public boolean haveMakeATurn(){ return this.madeTurn; }
 }

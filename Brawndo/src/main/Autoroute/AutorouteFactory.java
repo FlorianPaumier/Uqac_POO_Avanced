@@ -24,7 +24,10 @@ public class AutorouteFactory implements Factory {
 
         for (int i = 0; i < this.count; i++) {
             Autoroute autoroute = new Autoroute();
-            double speed = 0.5 + (new Random()).nextFloat() * (0.5 - 1.5);
+            double speed = (new Random()).nextFloat() * 2;
+            if (speed > 1.5) speed = 1.5;
+            if(speed < 0.5) speed = 0.5;
+
             autoroute.setSpeed(speed);
             autoroute.setRayon(this.defaultRayon);
             autoroute.setPerimeter(Math.floor(2 * Math.PI * this.defaultRayon));
