@@ -48,7 +48,7 @@ public class VehicleController {
                     if (autoroute.getId() + 1 > autoroutes.size()) {
                         nextAutoroute = autoroutes.get(autoroute.getId() - 1);
                     } else {
-                        nextAutoroute = autoroutes.get(autoroute.getId() + 1);
+                        nextAutoroute = autoroutes.get(autoroute.getId());
                     }
 
                     System.out.println(String.format("Le vehicule va de l'autoroute n°%d à l'autoroute n°%d", autoroute.getId(), nextAutoroute.getId()));
@@ -95,20 +95,17 @@ public class VehicleController {
             }
             if (nextPosition > vehicle.getStartPosition() && vehicle.haveMakeATurn()) {
                 System.out.println(String.format("Le vehicule %d change d'autoroute", vehicle.getId()));
-                nextPosition = (int) (nextPosition - autoroute.getPerimeter());
                 autoroute.removeVehicle(vehicle);
                 autoroute.addVehiclesOut(vehicle);
             }
             vehicle.setPosition(nextPosition);
-            System.out.println(String.format("Le vehicule n°%d avance de %f", vehicle.getId(), moveDist));
+            System.out.println(String.format("Le vehicule n°%d avance de %f et est à la position %d", vehicle.getId(), moveDist, vehicle.getPosition()));
         }
     }
 
     private void generateAccident(Vehicle vehicle) throws PanneException {
         double coef = vehicle.getCoefAccident();
         float accident = 1;
-
-        System.out.println("Coef Accident : " + accident * coef);
         if (accident < 0.005){
             throw new PanneException("Le vehicule n°"+vehicle.getId()+" a un accident");
         }

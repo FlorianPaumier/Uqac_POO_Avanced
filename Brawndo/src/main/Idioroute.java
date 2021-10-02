@@ -15,14 +15,21 @@ public class Idioroute {
     public static void main(String[] args) {
 
         System.out.println("Création du système");
-        ArrayList<Autoroute> autoroutes = (new AutorouteFactory(500)).generate();
+        ArrayList<Autoroute> autoroutes = (new AutorouteFactory(250)).generate();
         AutorouteController autorouteController = new AutorouteController(autoroutes);
         VehicleFactory vehicleFactory = new VehicleFactory(3);
         boolean run = true;
+        int turn = 10;
 
         System.out.println("Run");
 
         do {
+            System.out.println("/***************************/");
+            System.out.println("/****                   ****/");
+            System.out.println(String.format("/****     Tour n°%d     ****/", vehicleFactory.getTick()));
+            System.out.println("/****                   ****/");
+            System.out.println("/***************************/");
+
             try {
                 Vehicle v = vehicleFactory.generate();
                 // Insert new vehicle with AutorouteController Class
@@ -39,6 +46,7 @@ public class Idioroute {
                 run = false;
             }
 
+            //turn--;
         } while (run);
 
         System.out.println("Stop");

@@ -30,10 +30,11 @@ public class AutorouteFactory implements Factory {
 
             autoroute.setSpeed(speed);
             autoroute.setRayon(this.defaultRayon);
-            autoroute.setPerimeter(Math.floor(2 * Math.PI * this.defaultRayon));
+            autoroute.setPerimeter(Math.floor(2 * Math.PI * (this.defaultRayon / (i + 1))));
             autoroute.setAccess(acces);
-            autoroute.setId(i);
+            autoroute.setId(i + 1);
 
+            System.out.println(String.format("L'autoroute n°%d fait %f mètres", autoroute.getId(), autoroute.getPerimeter()));
             autoroutes.add(autoroute);
         }
 

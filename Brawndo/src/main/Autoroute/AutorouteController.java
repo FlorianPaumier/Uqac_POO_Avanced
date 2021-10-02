@@ -63,7 +63,6 @@ public class AutorouteController {
      * @throws AccidentException
      */
     public void next() throws AccidentException, PanneException {
-        final ArrayList<Autoroute> autoroutesCopy = new ArrayList<>(autoroutes);
         this.vehicleController.move(autoroutes);
         checkAccident();
     }

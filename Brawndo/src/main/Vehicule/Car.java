@@ -5,6 +5,6 @@ import main.Interface.Vehicle;
 public class Car extends Vehicle {
 
     public Car() {
-        setSpeed(30F);
+        setSpeed(50F);
     }
 }

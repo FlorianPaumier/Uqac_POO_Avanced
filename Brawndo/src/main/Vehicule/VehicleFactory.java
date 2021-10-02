@@ -29,6 +29,7 @@ public class VehicleFactory implements Factory {
         };
     }
 
+    public int getTick() { return this.tick; }
     /**
      * Generate a new vehicle each time timer is reached.
      *
@@ -39,7 +40,7 @@ public class VehicleFactory implements Factory {
         Vehicle v = null;
 
         System.out.println("Tour n°" + tick);
-        if (tick % timer == 0) {
+        if (tick % timer == 0 && tick < 20) {
             v = generateVehicule(id);
         }
         tick++;
@@ -56,7 +57,7 @@ public class VehicleFactory implements Factory {
     private Vehicle generateVehicule(int i) {
         Vehicle vehicleClass = null;
 
-        int index = (new Random()).nextInt(this.vehiclesClass.size() - 1);
+        int index = (new Random()).nextInt(this.vehiclesClass.size());
 
         try {
             vehicleClass = this.vehiclesClass.get(index).getDeclaredConstructor().newInstance();
