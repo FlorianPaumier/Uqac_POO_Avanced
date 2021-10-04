@@ -51,7 +51,7 @@ public class VehicleController {
                         nextAutoroute = autoroutes.get(autoroute.getId());
                     }
 
-                    System.out.println(String.format("Le vehicule va de l'autoroute n°%d à l'autoroute n°%d", autoroute.getId(), nextAutoroute.getId()));
+                    System.out.println(String.format("Le vehicule n°%d va de l'autoroute n°%d à l'autoroute n°%d", vehicle.getId(), autoroute.getId(), nextAutoroute.getId()));
 
                     for (int gate : nextAutoroute.getAccess().getGates()) {
                         int positionGate = AutorouteController.getGatePosition(gate, autoroute.getRayon());

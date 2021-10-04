@@ -8,23 +8,27 @@ import main.Exception.PanneException;
 import main.Interface.Vehicle;
 import main.Vehicule.VehicleFactory;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Idioroute {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        System.out.println("Création du système");
+        PrintStream output = new PrintStream("result.txt");
+        System.setOut(output);
+
+        System.out.println("Création du système\n");
         ArrayList<Autoroute> autoroutes = (new AutorouteFactory(250)).generate();
         AutorouteController autorouteController = new AutorouteController(autoroutes);
         VehicleFactory vehicleFactory = new VehicleFactory(3);
         boolean run = true;
-        int turn = 10;
 
-        System.out.println("Run");
+        System.out.println("\nRun");
 
         do {
-            System.out.println("/***************************/");
+            System.out.println("\n/***************************/");
             System.out.println("/****                   ****/");
             System.out.println(String.format("/****     Tour n°%d     ****/", vehicleFactory.getTick()));
             System.out.println("/****                   ****/");
@@ -46,9 +50,10 @@ public class Idioroute {
                 run = false;
             }
 
-            //turn--;
         } while (run);
 
-        System.out.println("Stop");
+        System.out.println("\nStop");
+
+
     }
 }
