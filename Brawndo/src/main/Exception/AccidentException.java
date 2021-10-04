@@ -20,7 +20,7 @@ public class AccidentException extends Throwable {
      * @return Created message
      */
     private static String generateMessage(ArrayList<Vehicle> collisionArray) {
-        String message = "Incident ! ";
+        String message = "\nIncident ! ";
         for (int i = 0; i < collisionArray.size(); i++) {
             message += Integer.toString(collisionArray.get(i).getId());
             if (i != collisionArray.size() - 1)
