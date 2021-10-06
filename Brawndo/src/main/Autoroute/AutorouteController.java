@@ -8,6 +8,8 @@ import main.Vehicule.VehicleController;
 
 import java.util.*;
 
+import javax.swing.text.View;
+
 public class AutorouteController {
 
     // vehicleController acts on all vehicles on roads
@@ -50,14 +52,11 @@ public class AutorouteController {
      */
     private ArrayList<Vehicle> checkIfVehiclesAreInSamePosition(Autoroute a) {
         for(Vehicle v : a.getVehicles()) {
-            List<Vehicle> crashed = a
-                    .getVehicles()
-                    .stream()
-                    .filter(vehicle -> vehicle.getPosition() == v.getPosition())
-                    .toList();
-            // If superior 2 => 2 vehicles at the same position
-            if (crashed.size() > 2)
-                return new ArrayList<Vehicle>(crashed);
+            for(Vehicle vehicle : a.getVehicles()){
+                if (VehicleController.compareTo(v, vehicle, a.getPerimeter())) {
+                    return new ArrayList<Vehicle>(Arrays.asList(v, vehicle));
+                }
+            }   
         }
         return new ArrayList<Vehicle>();
     }
@@ -155,6 +154,7 @@ public class AutorouteController {
                     Acces access = a.getAccess();
                     int indexGate = (new Random()).nextInt(access.getGates().size());
                     int position = access.getGatePosition(indexGate);
+                    v.setPreviousPosition(position);
                     v.setStartPosition(position);
                     addVehicleToAutoroute(a, v);
                 }

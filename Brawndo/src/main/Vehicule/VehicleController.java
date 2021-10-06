@@ -63,10 +63,15 @@ public class VehicleController {
             vehicle.madeATurn(true);
         }
 
+<<<<<<< HEAD
         vehicle.setMoveDist(moveDist);
         vehicle.setPrevPosition(vehicle.getPosition());
+=======
+        // Remember previous position for accident handling
+        vehicle.setPreviousPosition(vehicle.getPosition());
+>>>>>>> 61c42a2 (Collision)
         vehicle.setPosition(nextPosition);
-        System.out.printf("Le vehicule n°%d avance de %s et est à la position %d de l'autoroute %d%n", vehicle.getId(), new DecimalFormat("#.##").format(moveDist), vehicle.getPosition(), autoroute.getId());
+        System.out.printf("Le vehicule n°%d avance de %s et passe de la position %d à la position %d de l'autoroute %d%n", vehicle.getId(), new DecimalFormat("#.##").format(moveDist), vehicle.getPreviousPosition(),vehicle.getPosition(), autoroute.getId());
     }
 
 
@@ -87,5 +92,19 @@ public class VehicleController {
     public int calculateMoveOnNextAutoroute(Vehicle vehicle, int positionNextGate, int positionNextAutorouteGate) {
         int distOnCurrentAutoroute = positionNextGate - vehicle.getPrevPosition();
         return (int)(positionNextAutorouteGate + (vehicle.getMoveDist() - distOnCurrentAutoroute));
+    }
+    
+    public static boolean compareTo(Vehicle v1, Vehicle v2, double autoroutePerimeter){
+        if (v1.getPreviousPosition() < v2.getPreviousPosition()){
+            int v1Position = v1.getPosition();
+            int v2Position = v2.getPosition();
+            if (v1Position < v1.getPreviousPosition()) v1Position += autoroutePerimeter;
+            if (v2Position < v2.getPreviousPosition()) v1Position += autoroutePerimeter;
+            if (v1.getPosition() >= v2.getPosition()){
+                System.out.printf("%d >= %d\n", v1.getPosition(), v2.getPosition());
+                return true;
+            }
+        }
+        return false;
     }
 }
