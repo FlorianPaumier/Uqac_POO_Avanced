@@ -26,6 +26,8 @@ public class AccidentException extends Throwable {
             if (i != collisionArray.size() - 1)
                 message += " and ";
             else message += " crashed !";
+            Vehicle v = collisionArray.get(i);
+            System.out.printf("Vehicle %d was in position %d and went to position %d\n", v.getId(), v.getPreviousPosition(), v.getPosition());
         }
         return message;
     }

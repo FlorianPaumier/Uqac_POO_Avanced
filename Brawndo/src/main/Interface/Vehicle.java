@@ -3,6 +3,7 @@ package main.Interface;
 public abstract class Vehicle {
 
     private int id;
+    private int previousPosition;
     private int startPosition;
     private int position;
     private float speed;
@@ -31,6 +32,10 @@ public abstract class Vehicle {
     public int getPosition() {
         return position;
     }
+
+    public int getPreviousPosition(){return this.previousPosition;}
+
+    public void setPreviousPosition(int position) {this.previousPosition = position;}
 
     public void setPosition(int position) { this.position = position; }
 

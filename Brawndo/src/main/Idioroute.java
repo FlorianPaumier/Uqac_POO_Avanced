@@ -16,7 +16,7 @@ public class Idioroute {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        PrintStream output = new PrintStream("result2.txt");
+        PrintStream output = new PrintStream("result.txt");
         System.setOut(output);
 
         System.out.println("Création du système\n");
@@ -49,6 +49,9 @@ public class Idioroute {
                 e.printStackTrace();
                 run = false;
             }
+
+            try{Thread.sleep(500);}
+            catch(InterruptedException ex){Thread.currentThread().interrupt();}
 
         } while (run);
 
