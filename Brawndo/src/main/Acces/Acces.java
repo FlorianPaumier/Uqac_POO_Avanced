@@ -27,12 +27,40 @@ public class Acces {
             return;
 
         for(int i = 0; i < gateNumber; i++) {
-            final double angle = (double) angleInitial + angleDifferentiel * i;
-            gates.add((int)(angle / 360.0 * 2 * Math.PI * this.rayon));
+            final int angle = angleInitial + angleDifferentiel * i;
+            gates.add(angle);
         }
+    }
+
+    public int getGatePosition(int angle){
+        return (int)(angle / 360.0 * this.rayon);
     }
 
     public List<Integer> getGates() {
         return gates;
+    }
+
+    public int getAngleInitial() {
+        return angleInitial;
+    }
+
+    public void setAngleInitial(int angleInitial) {
+        this.angleInitial = angleInitial;
+    }
+
+    public int getAngleDifferentiel() {
+        return angleDifferentiel;
+    }
+
+    public void setAngleDifferentiel(int angleDifferentiel) {
+        this.angleDifferentiel = angleDifferentiel;
+    }
+
+    public int getRayon() {
+        return rayon;
+    }
+
+    public void setRayon(int rayon) {
+        this.rayon = rayon;
     }
 }

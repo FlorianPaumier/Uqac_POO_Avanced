@@ -9,6 +9,8 @@ public abstract class Vehicle {
     private boolean madeTurn = false;
     private final double maxCoeffPanne = 0.005;
     private double coefPanne;
+    private int prevPosition;
+    private double moveDist;
 
     public int getId() {
         return id;
@@ -54,4 +56,20 @@ public abstract class Vehicle {
     }
 
     public boolean haveMakeATurn(){ return this.madeTurn; }
+
+    public int getPrevPosition() {
+        return prevPosition;
+    }
+
+    public void setPrevPosition(int prevPosition) {
+        this.prevPosition = prevPosition;
+    }
+
+    public double getMoveDist() {
+        return moveDist;
+    }
+
+    public void setMoveDist(double moveDist) {
+        this.moveDist = moveDist;
+    }
 }

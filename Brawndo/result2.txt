@@ -1,0 +1,797 @@
+Création du système
+
+L'autoroute n°1 fait 1570,000000 mètres
+L'autoroute n°2 fait 785,000000 mètres
+L'autoroute n°3 fait 521,000000 mètres
+L'autoroute n°4 fait 389,000000 mètres
+L'autoroute n°5 fait 314,000000 mètres
+
+Run
+
+/***************************/
+/****                   ****/
+/****     Tour n°0     ****/
+/****                   ****/
+/***************************/
+Tour n°0
+Création du véhicule n°1
+Insert Vehicle 1, type : Moto
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 108 de l'autoroute 1
+1 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°1     ****/
+/****                   ****/
+/***************************/
+Tour n°1
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 216 de l'autoroute 1
+1 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°2     ****/
+/****                   ****/
+/***************************/
+Tour n°2
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 324 de l'autoroute 1
+1 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°3     ****/
+/****                   ****/
+/***************************/
+Tour n°3
+Création du véhicule n°2
+Insert Vehicle 2, type : Car
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 432 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 72 de l'autoroute 1
+2 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°4     ****/
+/****                   ****/
+/***************************/
+Tour n°4
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 540 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 144 de l'autoroute 1
+2 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°5     ****/
+/****                   ****/
+/***************************/
+Tour n°5
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 648 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 216 de l'autoroute 1
+2 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°6     ****/
+/****                   ****/
+/***************************/
+Tour n°6
+Création du véhicule n°3
+Insert Vehicle 3, type : Car
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 756 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 288 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 72 de l'autoroute 1
+3 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°7     ****/
+/****                   ****/
+/***************************/
+Tour n°7
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 864 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 360 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 144 de l'autoroute 1
+3 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°8     ****/
+/****                   ****/
+/***************************/
+Tour n°8
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 972 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 432 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 216 de l'autoroute 1
+3 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°9     ****/
+/****                   ****/
+/***************************/
+Tour n°9
+Création du véhicule n°4
+Insert Vehicle 4, type : Moto
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 1080 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 504 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 288 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 108 de l'autoroute 1
+4 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°10     ****/
+/****                   ****/
+/***************************/
+Tour n°10
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 1188 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 576 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 360 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 216 de l'autoroute 1
+4 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°11     ****/
+/****                   ****/
+/***************************/
+Tour n°11
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 1296 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 648 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 432 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 324 de l'autoroute 1
+4 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°12     ****/
+/****                   ****/
+/***************************/
+Tour n°12
+Création du véhicule n°5
+Insert Vehicle 5, type : Truck
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 1404 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 720 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 504 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 432 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 57 de l'autoroute 1
+5 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°13     ****/
+/****                   ****/
+/***************************/
+Tour n°13
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 1512 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 792 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 576 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 540 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 114 de l'autoroute 1
+5 vehicles on autoroute 1
+0 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°14     ****/
+/****                   ****/
+/***************************/
+Tour n°14
+--------- Move section ---------
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 108 et est à la position 50 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 864 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 648 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 648 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 171 de l'autoroute 1
+Le vehicule n°1 va de l'autoroute n°1 à l'autoroute n°2
+4 vehicles on autoroute 1
+1 vehicles on autoroute 2
+0 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°15     ****/
+/****                   ****/
+/***************************/
+Tour n°15
+Création du véhicule n°6
+Insert Vehicle 6, type : Truck
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 936 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 720 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 756 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 228 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 57 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 51 et est à la position 838 de l'autoroute 2
+5 vehicles on autoroute 1
+Le vehicule n°1 va de l'autoroute n°2 à l'autoroute n°3
+0 vehicles on autoroute 2
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°16     ****/
+/****                   ****/
+/***************************/
+Tour n°16
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1008 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 792 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 864 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 285 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 114 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 1174 de l'autoroute 3
+5 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°17     ****/
+/****                   ****/
+/***************************/
+Tour n°17
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1080 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 864 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 972 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 342 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 171 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 765 de l'autoroute 3
+5 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°18     ****/
+/****                   ****/
+/***************************/
+Tour n°18
+Création du véhicule n°7
+Insert Vehicle 7, type : Car
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1152 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 936 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 1080 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 399 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 228 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 72 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 356 de l'autoroute 3
+6 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°19     ****/
+/****                   ****/
+/***************************/
+Tour n°19
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1224 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1008 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 1188 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 456 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 285 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 144 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 468 de l'autoroute 3
+6 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°20     ****/
+/****                   ****/
+/***************************/
+Tour n°20
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1296 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1080 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 1296 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 513 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 342 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 216 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 59 de l'autoroute 3
+6 vehicles on autoroute 1
+0 vehicles on autoroute 2
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°21     ****/
+/****                   ****/
+/***************************/
+Tour n°21
+Création du véhicule n°8
+Insert Vehicle 8, type : Car
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1368 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1152 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 1404 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 570 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 399 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 288 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 72 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 171 de l'autoroute 3
+7 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°22     ****/
+/****                   ****/
+/***************************/
+Tour n°22
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1440 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1224 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 1512 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 627 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 456 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 360 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 144 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 283 de l'autoroute 3
+7 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°23     ****/
+/****                   ****/
+/***************************/
+Tour n°23
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 1512 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1296 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 108 et est à la position 50 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 684 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 513 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 432 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 216 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 395 de l'autoroute 3
+Le vehicule n°4 va de l'autoroute n°1 à l'autoroute n°2
+6 vehicles on autoroute 1
+1 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+1 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°24     ****/
+/****                   ****/
+/***************************/
+Tour n°24
+Création du véhicule n°9
+Insert Vehicle 9, type : Truck
+--------- Move section ---------
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 72 et est à la position 14 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1368 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 741 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 570 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 504 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 288 de l'autoroute 1
+Move vehicle (Truck) n°9
+Le vehicule n°9 avance de 57 et est à la position 57 de l'autoroute 1
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 51 et est à la position 838 de l'autoroute 2
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 507 de l'autoroute 3
+Le vehicule n°2 va de l'autoroute n°1 à l'autoroute n°2
+6 vehicles on autoroute 1
+Le vehicule n°4 va de l'autoroute n°2 à l'autoroute n°3
+1 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+2 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°25     ****/
+/****                   ****/
+/***************************/
+Tour n°25
+--------- Move section ---------
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1440 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 798 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 627 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 576 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 360 de l'autoroute 1
+Move vehicle (Truck) n°9
+Le vehicule n°9 avance de 57 et est à la position 114 de l'autoroute 1
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 34 et est à la position 816 de l'autoroute 2
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 98 de l'autoroute 3
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 112 et est à la position 1174 de l'autoroute 3
+6 vehicles on autoroute 1
+Le vehicule n°2 va de l'autoroute n°2 à l'autoroute n°3
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°4 va de l'autoroute n°3 à l'autoroute n°4
+3 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°26     ****/
+/****                   ****/
+/***************************/
+Tour n°26
+--------- Move section ---------
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 1512 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 855 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 684 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 648 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 432 de l'autoroute 1
+Move vehicle (Truck) n°9
+Le vehicule n°9 avance de 57 et est à la position 171 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 210 de l'autoroute 3
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 112 et est à la position 765 de l'autoroute 3
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 75 et est à la position 1115 de l'autoroute 3
+6 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°4 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°2 va de l'autoroute n°3 à l'autoroute n°4
+3 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°27     ****/
+/****                   ****/
+/***************************/
+Tour n°27
+Création du véhicule n°10
+Insert Vehicle 10, type : Car
+--------- Move section ---------
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 72 et est à la position 14 de l'autoroute 1
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 912 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 741 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 720 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 504 de l'autoroute 1
+Move vehicle (Truck) n°9
+Le vehicule n°9 avance de 57 et est à la position 228 de l'autoroute 1
+Move vehicle (Car) n°10
+Le vehicule n°10 avance de 72 et est à la position 72 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 322 de l'autoroute 3
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 112 et est à la position 356 de l'autoroute 3
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 75 et est à la position 669 de l'autoroute 3
+Le vehicule n°3 va de l'autoroute n°1 à l'autoroute n°2
+6 vehicles on autoroute 1
+1 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°4 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°2 va de l'autoroute n°3 à l'autoroute n°4
+3 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°28     ****/
+/****                   ****/
+/***************************/
+Tour n°28
+--------- Move section ---------
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 969 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 798 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 792 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 576 de l'autoroute 1
+Move vehicle (Truck) n°9
+Le vehicule n°9 avance de 57 et est à la position 285 de l'autoroute 1
+Move vehicle (Car) n°10
+Le vehicule n°10 avance de 72 et est à la position 144 de l'autoroute 1
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 34 et est à la position 816 de l'autoroute 2
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 434 de l'autoroute 3
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 112 et est à la position 468 de l'autoroute 3
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 75 et est à la position 223 de l'autoroute 3
+6 vehicles on autoroute 1
+Le vehicule n°3 va de l'autoroute n°2 à l'autoroute n°3
+0 vehicles on autoroute 2
+Le vehicule n°1 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°4 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°2 va de l'autoroute n°3 à l'autoroute n°4
+4 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°29     ****/
+/****                   ****/
+/***************************/
+Tour n°29
+--------- Move section ---------
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 1026 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 855 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 864 de l'autoroute 1
+Move vehicle (Car) n°8
+Le vehicule n°8 avance de 72 et est à la position 648 de l'autoroute 1
+Move vehicle (Truck) n°9
+Le vehicule n°9 avance de 57 et est à la position 342 de l'autoroute 1
+Move vehicle (Car) n°10
+Le vehicule n°10 avance de 72 et est à la position 216 de l'autoroute 1
+Move vehicle (Moto) n°1
+Le vehicule n°1 avance de 112 et est à la position 25 de l'autoroute 3
+Move vehicle (Moto) n°4
+Le vehicule n°4 avance de 112 et est à la position 59 de l'autoroute 3
+Move vehicle (Car) n°2
+Le vehicule n°2 avance de 75 et est à la position 298 de l'autoroute 3
+Move vehicle (Car) n°3
+Le vehicule n°3 avance de 75 et est à la position 1115 de l'autoroute 3
+6 vehicles on autoroute 1
+0 vehicles on autoroute 2
+Le vehicule n°2 va de l'autoroute n°3 à l'autoroute n°4
+Le vehicule n°3 va de l'autoroute n°3 à l'autoroute n°4
+4 vehicles on autoroute 3
+0 vehicles on autoroute 4
+0 vehicles on autoroute 5
+
+/***************************/
+/****                   ****/
+/****     Tour n°30     ****/
+/****                   ****/
+/***************************/
+Tour n°30
+Création du véhicule n°11
+Insert Vehicle 11, type : Truck
+--------- Move section ---------
+Move vehicle (Truck) n°5
+Le vehicule n°5 avance de 57 et est à la position 1083 de l'autoroute 1
+Move vehicle (Truck) n°6
+Le vehicule n°6 avance de 57 et est à la position 912 de l'autoroute 1
+Move vehicle (Car) n°7
+Le vehicule n°7 avance de 72 et est à la position 936 de l'autoroute 1
+Le vehicule n°8 a eu une panne
+
+Stop

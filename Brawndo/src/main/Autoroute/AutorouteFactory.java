@@ -1,6 +1,7 @@
 package main.Autoroute;
 
 import main.Acces.Acces;
+import main.Idioroute;
 import main.Interface.Factory;
 
 import java.util.ArrayList;
@@ -28,10 +29,10 @@ public class AutorouteFactory implements Factory {
             if(speed < 0.5) speed = 0.5;
 
             autoroute.setSpeed(speed);
-            autoroute.setRayon(this.defaultRayon);
-            autoroute.setPerimeter(Math.floor(2 * Math.PI * (this.defaultRayon / (i + 1))));
+            autoroute.setRayon(this.defaultRayon / (i+1));
+            autoroute.setPerimeter(Idioroute.calculateAngle(autoroute.getRayon()));
 
-            Acces acces = new Acces(defaultRayon);
+            Acces acces = new Acces(autoroute.getRayon());
             acces.generateAcces();
 
             autoroute.setAccess(acces);

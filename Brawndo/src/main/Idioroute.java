@@ -16,7 +16,7 @@ public class Idioroute {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        PrintStream output = new PrintStream("result.txt");
+        PrintStream output = new PrintStream("result2.txt");
         System.setOut(output);
 
         System.out.println("Création du système\n");
@@ -55,5 +55,9 @@ public class Idioroute {
         System.out.println("\nStop");
 
 
+    }
+
+    public static double calculateAngle(int rayon){
+        return Math.floor(2 * Math.PI * rayon);
     }
 }

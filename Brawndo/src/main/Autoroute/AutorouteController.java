@@ -7,7 +7,6 @@ import main.Interface.Vehicle;
 import main.Vehicule.VehicleController;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class AutorouteController {
 
@@ -74,7 +73,7 @@ public class AutorouteController {
         autoroutes = this.vehicleController.move(copyOfAutoroutes); // TODO
 
         for (Autoroute autoroute : autoroutes) {
-            LinkedList<Vehicle> vehiculeToChange = new LinkedList<>();
+            ArrayList<Object[]> vehicleToChange = new ArrayList();
 
             Autoroute nextAutoroute = null;
 
@@ -85,33 +84,50 @@ public class AutorouteController {
             }
 
             for (Vehicle vehicle : autoroute.getVehicles()) {
-
                 if (vehicle.getPosition() > vehicle.getStartPosition() && vehicle.haveMakeATurn()) {
-                    System.out.printf("Le vehicule n°%d va de l'autoroute n°%d à l'autoroute n°%d%n", vehicle.getId(), autoroute.getId(), nextAutoroute.getId());
-
-                    Collections.sort(nextAutoroute.getAccess().getGates());
-
-                    int counterModulo = 0;
-                    for (int nextGate : nextAutoroute.getAccess().getGates()) {
-                        if (nextGate < vehicle.getPosition() || counterModulo == nextAutoroute.getAccess().getGates().size() - 1) {
-                            vehiculeToChange.add(vehicle);
-                            vehicle.setStartPosition(nextGate);
-                            vehicle.setPosition(vehicle.getPosition() - nextGate);
-                            vehicle.madeATurn(false);
-                            break;
-                        } else counterModulo++;
-                    }
+                    vehicleToChange.add(this.changeAutoroute(vehicle, autoroute, nextAutoroute));
                 }
             }
-            for (Vehicle v : vehiculeToChange) {
-                changeVehicle(false, v, autoroute);
-                changeVehicle(true, v, nextAutoroute);
-                System.out.printf("vehicle %d\n", v.getId());
+
+            for (Object[] vehicleToMove: vehicleToChange){
+                if (vehicleToMove == null) continue;
+                Vehicle vehicle = (Vehicle)vehicleToMove[0];
+                changeVehicle(false,vehicle , autoroute);
+                vehicle.setStartPosition((int)vehicleToMove[2]);
+                vehicle.setPosition(vehicleController.calculateMoveOnNextAutoroute(vehicle, (int)vehicleToMove[1], (int)vehicleToMove[2]));
+                vehicle.madeATurn(false);
+                addVehicleToAutoroute(nextAutoroute, vehicle);
             }
+
             System.out.printf("%d vehicles on autoroute %d\n", autoroute.getVehicles().size(), autoroute.getId());
         }
 
         checkAccident();
+    }
+
+    private Object[] changeAutoroute(Vehicle vehicle, Autoroute autoroute, Autoroute nextAutoroute) {
+        System.out.printf("Le vehicule n°%d va de l'autoroute n°%d à l'autoroute n°%d%n", vehicle.getId(), autoroute.getId(), nextAutoroute.getId());
+
+        int counterModulo = 0;
+        Acces currentAutorouteGates = autoroute.getAccess();
+        for(int i = 0; i < currentAutorouteGates.getGates().size();i++) {
+            int currentNextGate = currentAutorouteGates.getGates().get(i);
+            int positionNextGate = this.getGatePosition(currentAutorouteGates, currentNextGate);
+            int nextAutorouteGate = this.findNextAutorouteGateAutoroute(nextAutoroute.getAccess(), currentNextGate);
+            if (positionNextGate > vehicle.getPosition() || counterModulo == nextAutoroute.getAccess().getGates().size() - 1) {
+                return new Object[]{vehicle, positionNextGate, nextAutorouteGate};
+            } else counterModulo++;
+        }
+
+        return null;
+    }
+
+    private int findNextAutorouteGateAutoroute(Acces nextAutoroute, int currentAutorouteGates) {
+        return (int)(currentAutorouteGates / 360.0 * nextAutoroute.getRayon());
+    }
+
+    private int getGatePosition(Acces acces, int angle) {
+        return acces.getGatePosition(angle);
     }
 
     /**
@@ -135,11 +151,10 @@ public class AutorouteController {
     private void changeVehicle(boolean add, Vehicle v, Autoroute a) {
         try {
             if (this.autoroutes.contains(a)){
-
                 if (add) {
                     Acces access = a.getAccess();
                     int indexGate = (new Random()).nextInt(access.getGates().size());
-                    int position = access.getGates().get(indexGate);
+                    int position = access.getGatePosition(indexGate);
                     v.setStartPosition(position);
                     addVehicleToAutoroute(a, v);
                 }

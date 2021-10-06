@@ -55,7 +55,7 @@ public class VehicleController {
 
         System.out.printf("Move vehicle (%s) n°%d%n", vehicle.getClass().getSimpleName(), vehicle.getId());
 
-        double moveDist = autoroute.getSpeed() * vehicle.getSpeed();
+        int moveDist = (int)(autoroute.getSpeed() * vehicle.getSpeed());
         int nextPosition = (int) Math.floor(moveDist + vehicle.getPosition());
 
         if (nextPosition > autoroute.getPerimeter()){
@@ -63,6 +63,8 @@ public class VehicleController {
             vehicle.madeATurn(true);
         }
 
+        vehicle.setMoveDist(moveDist);
+        vehicle.setPrevPosition(vehicle.getPosition());
         vehicle.setPosition(nextPosition);
         System.out.printf("Le vehicule n°%d avance de %s et est à la position %d de l'autoroute %d%n", vehicle.getId(), new DecimalFormat("#.##").format(moveDist), vehicle.getPosition(), autoroute.getId());
     }
@@ -80,5 +82,10 @@ public class VehicleController {
         if (panne < coeff){
             throw new PanneException("Le vehicule n°" + vehicle.getId() + " a eu une panne");
         }
+    }
+
+    public int calculateMoveOnNextAutoroute(Vehicle vehicle, int positionNextGate, int positionNextAutorouteGate) {
+        int distOnCurrentAutoroute = positionNextGate - vehicle.getPrevPosition();
+        return (int)(positionNextAutorouteGate + (vehicle.getMoveDist() - distOnCurrentAutoroute));
     }
 }
