@@ -62,14 +62,6 @@ public abstract class Vehicle {
 
     public boolean haveMakeATurn(){ return this.madeTurn; }
 
-    public int getPrevPosition() {
-        return prevPosition;
-    }
-
-    public void setPrevPosition(int prevPosition) {
-        this.prevPosition = prevPosition;
-    }
-
     public double getMoveDist() {
         return moveDist;
     }

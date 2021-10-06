@@ -30,7 +30,7 @@ public class AutorouteFactory implements Factory {
 
             autoroute.setSpeed(speed);
             autoroute.setRayon(this.defaultRayon / (i+1));
-            autoroute.setPerimeter(Idioroute.calculateAngle(autoroute.getRayon()));
+            autoroute.setPerimeter(Math.floor(2 * Math.PI * autoroute.getRayon()));
 
             Acces acces = new Acces(autoroute.getRayon());
             acces.generateAcces();

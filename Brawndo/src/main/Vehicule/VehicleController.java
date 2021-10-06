@@ -63,13 +63,9 @@ public class VehicleController {
             vehicle.madeATurn(true);
         }
 
-<<<<<<< HEAD
         vehicle.setMoveDist(moveDist);
-        vehicle.setPrevPosition(vehicle.getPosition());
-=======
         // Remember previous position for accident handling
         vehicle.setPreviousPosition(vehicle.getPosition());
->>>>>>> 61c42a2 (Collision)
         vehicle.setPosition(nextPosition);
         System.out.printf("Le vehicule n°%d avance de %s et passe de la position %d à la position %d de l'autoroute %d%n", vehicle.getId(), new DecimalFormat("#.##").format(moveDist), vehicle.getPreviousPosition(),vehicle.getPosition(), autoroute.getId());
     }
@@ -90,7 +86,7 @@ public class VehicleController {
     }
 
     public int calculateMoveOnNextAutoroute(Vehicle vehicle, int positionNextGate, int positionNextAutorouteGate) {
-        int distOnCurrentAutoroute = positionNextGate - vehicle.getPrevPosition();
+        int distOnCurrentAutoroute = positionNextGate - vehicle.getPreviousPosition();
         return (int)(positionNextAutorouteGate + (vehicle.getMoveDist() - distOnCurrentAutoroute));
     }
     
