@@ -6,8 +6,6 @@ import main.Interface.Vehicle;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Optional;
 import java.util.Random;
 
 public class VehicleController {
@@ -34,15 +32,16 @@ public class VehicleController {
      */
     public ArrayList<Autoroute> move(final ArrayList<Autoroute> autoroutes) throws PanneException {
         System.out.println("--------- Move section ---------");
+        boolean turnHavePanne = (new Random()).nextDouble() < 0.05;
+
         for (Autoroute autoroute : autoroutes) {
             for (Vehicle vehicle : autoroute.getVehicles()) {
-                generatePanne(vehicle);
+                if(turnHavePanne) generatePanne(vehicle);
                 moveOneVehicle(vehicle, autoroute);
             };
         };
         return autoroutes;
     }
-
 
     /**
      * Move just one vehicle following autoroute speed.

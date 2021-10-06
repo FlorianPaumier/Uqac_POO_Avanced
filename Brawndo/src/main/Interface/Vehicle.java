@@ -7,7 +7,7 @@ public abstract class Vehicle {
     private int position;
     private float speed;
     private boolean madeTurn = false;
-    private final double maxCoeffPanne = 0.0; //0.005; TODO
+    private final double maxCoeffPanne = 0.005;
     private double coefPanne;
 
     public int getId() {
