@@ -11,9 +11,8 @@ public class VehicleFactory implements Factory {
 
     private int id;
     private int tick;
-    private int timer;
-    private int maxVehicle = 5;
-    private ArrayList<Class<? extends Vehicle>> vehiclesClass;
+    private final int timer;
+    private final ArrayList<Class<? extends Vehicle>> vehiclesClass;
 
     public VehicleFactory(int timer) {
         this.id = 0;
@@ -29,7 +28,10 @@ public class VehicleFactory implements Factory {
         };
     }
 
+
     public int getTick() { return this.tick; }
+
+
     /**
      * Generate a new vehicle each time timer is reached.
      *
@@ -66,9 +68,14 @@ public class VehicleFactory implements Factory {
         }
 
         ++this.id;
-        vehicleClass.setId(++i);
 
-        System.out.println("Création du véhicule n°" + vehicleClass.getId());
+        assert vehicleClass != null;
+
+        vehicleClass.setId(++i);
+        // Set a random coeffPanne between maxCoeffPanne and 0
+        vehicleClass.setCoefPanne(vehicleClass.getMaxCoeffPanne() * (new Random()).nextDouble());
+
+        System.out.printf("Création du véhicule n°%d%n", vehicleClass.getId());
         return vehicleClass;
     }
 }

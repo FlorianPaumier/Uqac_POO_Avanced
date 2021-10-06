@@ -43,16 +43,6 @@ public class Autoroute {
         this.vehicles = vehicles;
     }
 
-    public ArrayList<Vehicle> addVehicle(Vehicle vehicle){
-        this.vehicles.add(vehicle);
-        return this.vehicles;
-    }
-
-    public ArrayList<Vehicle> removeVehicle(Vehicle vehicle){
-        List<Vehicle> vehicleList = this.vehicles.stream().filter(vehicle1 -> vehicle.getId() == vehicle1.getId()).collect(Collectors.toList());
-        return new ArrayList<>(vehicleList);
-    }
-
     public double getSpeed() {
         return speed;
     }
@@ -65,18 +55,9 @@ public class Autoroute {
         return vehiclesOut;
     }
 
-    public void addVehiclesOut(Vehicle vehiclesOut) {
-        this.vehiclesOut.add(vehiclesOut);
-    }
+    public void setVehiclesOut(ArrayList<Vehicle> vehiclesOut) { this.vehiclesOut = vehiclesOut; }
 
-
-    public ArrayList<Vehicle> removeVehicleOut(Vehicle vehicle){
-        List<Vehicle> vehicleList = this.vehiclesOut.stream().filter(vehicle1 -> vehicle.getId() == vehicle1.getId()).collect(Collectors.toList());
-        return new ArrayList<>(vehicleList);
-    }
-    public double getPerimeter() {
-        return perimeter;
-    }
+    public double getPerimeter() { return perimeter; }
 
     public void setPerimeter(double perimeter) {
         this.perimeter = perimeter;

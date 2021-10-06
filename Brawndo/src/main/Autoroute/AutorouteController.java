@@ -7,10 +7,11 @@ import main.Interface.Vehicle;
 import main.Vehicule.VehicleController;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AutorouteController {
 
-    // vehicleController acts on all vehicles on the road
+    // vehicleController acts on all vehicles on roads
     VehicleController vehicleController;
     // All created autoroutes by the factory
     ArrayList<Autoroute> autoroutes;
@@ -50,9 +51,14 @@ public class AutorouteController {
      */
     private ArrayList<Vehicle> checkIfVehiclesAreInSamePosition(Autoroute a) {
         for(Vehicle v : a.getVehicles()) {
-            List<Vehicle> crashed = a.getVehicles().stream().filter(vehicle -> vehicle.getPosition() == v.getPosition()).toList();
+            List<Vehicle> crashed = a
+                    .getVehicles()
+                    .stream()
+                    .filter(vehicle -> vehicle.getPosition() == v.getPosition())
+                    .toList();
             // If superior 2 => 2 vehicles at the same position
-            if (crashed.size() > 2) return new ArrayList<Vehicle>(crashed);
+            if (crashed.size() > 2)
+                return new ArrayList<Vehicle>(crashed);
         }
         return new ArrayList<Vehicle>();
     }
@@ -63,7 +69,48 @@ public class AutorouteController {
      * @throws AccidentException
      */
     public void next() throws AccidentException, PanneException {
-        this.vehicleController.move(autoroutes);
+
+        ArrayList<Autoroute> copyOfAutoroutes = new ArrayList<>(autoroutes);
+        autoroutes = this.vehicleController.move(copyOfAutoroutes); // TODO
+
+        for (Autoroute autoroute : autoroutes) {
+            LinkedList<Vehicle> vehiculeToChange = new LinkedList<>();
+
+            Autoroute nextAutoroute = null;
+
+            if (autoroute.getId() + 1 > autoroutes.size()) {
+                nextAutoroute = autoroutes.get(autoroute.getId() - 1);
+            } else {
+                nextAutoroute = autoroutes.get(autoroute.getId());
+            }
+
+            for (Vehicle vehicle : autoroute.getVehicles()) {
+
+                if (vehicle.getPosition() > vehicle.getStartPosition() && vehicle.haveMakeATurn()) {
+                    System.out.printf("Le vehicule n°%d va de l'autoroute n°%d à l'autoroute n°%d%n", vehicle.getId(), autoroute.getId(), nextAutoroute.getId());
+
+                    Collections.sort(nextAutoroute.getAccess().getGates());
+
+                    int counterModulo = 0;
+                    for (int nextGate : nextAutoroute.getAccess().getGates()) {
+                        if (nextGate < vehicle.getPosition() || counterModulo == nextAutoroute.getAccess().getGates().size() - 1) {
+                            vehiculeToChange.add(vehicle);
+                            vehicle.setStartPosition(nextGate);
+                            vehicle.setPosition(vehicle.getPosition() - nextGate);
+                            vehicle.madeATurn(false);
+                            break;
+                        } else counterModulo++;
+                    }
+                }
+            }
+            for (Vehicle v : vehiculeToChange) {
+                changeVehicle(false, v, autoroute);
+                changeVehicle(true, v, nextAutoroute);
+                System.out.printf("vehicle %d\n", v.getId());
+            }
+            System.out.printf("%d vehicles on autoroute %d\n", autoroute.getVehicles().size(), autoroute.getId());
+        }
+
         checkAccident();
     }
 
@@ -73,8 +120,8 @@ public class AutorouteController {
      */
     public void insertVehicle(Vehicle v) {
         if (v == null) return;
-        System.out.println("Insert Vehicle " + v.getId());
-        this.changeVehicle(true, v, getBigger());
+        System.out.printf("Insert Vehicle %d, type : %s\n", v.getId(), v.getClass().getSimpleName());
+        changeVehicle(true, v, getBigger());
     }
 
     /**
@@ -88,26 +135,19 @@ public class AutorouteController {
     private void changeVehicle(boolean add, Vehicle v, Autoroute a) {
         try {
             if (this.autoroutes.contains(a)){
-                int index = this.autoroutes.indexOf(a);
-                Autoroute currentAutoroute = this.autoroutes.get(index);
-
 
                 if (add) {
-                    Acces access = currentAutoroute.getAccess();
+                    Acces access = a.getAccess();
                     int indexGate = (new Random()).nextInt(access.getGates().size());
-                    int gates = access.getGates().get(indexGate);
-                    int position = getGatePosition(gates, currentAutoroute.getRayon());
+                    int position = access.getGates().get(indexGate);
                     v.setStartPosition(position);
-                    currentAutoroute.addVehicle(v);
+                    addVehicleToAutoroute(a, v);
                 }
-                else currentAutoroute.removeVehicle(v);
-
-                System.out.println("Size Vehicle " + currentAutoroute.getVehicles().size());
-                this.autoroutes.set(index, currentAutoroute);
+                else removeVehicleFromAutoroute(a, v);
             }
         } catch (Exception e) {
             System.out.println("Change vehicle : "
-                    + (add == true ? "add " : "remove ")
+                    + (add ? "add " : "remove ")
                     + e.getMessage());
         }
     }
@@ -117,7 +157,7 @@ public class AutorouteController {
      * @return Autauroute which has the bigger rayon
      */
     private Autoroute getBigger() {
-        // Copy autoroutes to not influence attribute.
+        // Copy autoroutes to not act on attribute.
         ArrayList<Autoroute> autoroutesCopy = new ArrayList<Autoroute>(autoroutes);
 
         // Sort autoroutes by rayon.
@@ -134,7 +174,31 @@ public class AutorouteController {
         return autoroutesCopy.get(0);
     }
 
-    public static int getGatePosition(int gate,int rayon ){
-        return (int)((gate/360) * 2 * Math.PI * rayon);
+
+    /**
+     * Remove a vehicle from out vehicles
+     * @param autoroute : autoroute to act on
+     * @param vehicle :
+     */
+    public void removeVehicleOut(Autoroute autoroute, Vehicle vehicle) {
+        autoroute.getVehiclesOut().remove(vehicle);
+    }
+
+    /**
+     * Add a vehicle to a specific autoroute
+     * @param autoroute : autoroute to act on
+     * @param vehicle : vehicle to add
+     */
+    public void addVehicleToAutoroute(Autoroute autoroute, Vehicle vehicle){
+        autoroute.getVehicles().add(vehicle);
+    }
+
+    /**
+     * Remove a vehicle from a specific autoroute
+     * @param autoroute : autoroute to act on
+     * @param vehicle : vehicle to remove
+     */
+    public void removeVehicleFromAutoroute(Autoroute autoroute, Vehicle vehicle) {
+        autoroute.getVehicles().remove(vehicle);
     }
 }

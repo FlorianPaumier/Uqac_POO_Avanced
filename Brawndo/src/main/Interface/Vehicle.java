@@ -6,8 +6,9 @@ public abstract class Vehicle {
     private int startPosition;
     private int position;
     private float speed;
-    private boolean madeTurn;
-    private double coefAccident = 0.1;
+    private boolean madeTurn = false;
+    private final double maxCoeffPanne = 0.0; //0.005; TODO
+    private double coefPanne;
 
     public int getId() {
         return id;
@@ -39,12 +40,13 @@ public abstract class Vehicle {
         this.speed = speed;
     }
 
-    public double getCoefAccident() {
-        return coefAccident;
-    }
+    public double getMaxCoeffPanne() { return maxCoeffPanne; }
 
-    public void setCoefAccident(double coefAccident) {
-        this.coefAccident = coefAccident;
+    public double getCoefPanne() { return coefPanne; }
+
+    public void setCoefPanne(double coefPanne) {
+        if (coefPanne > maxCoeffPanne) this.coefPanne = maxCoeffPanne;
+        else this.coefPanne = Math.max(coefPanne, 0.0);
     }
 
     public void madeATurn(boolean b) {

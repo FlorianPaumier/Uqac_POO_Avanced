@@ -1,16 +1,18 @@
 package main.Vehicule;
 
 import main.Autoroute.Autoroute;
-import main.Autoroute.AutorouteController;
 import main.Exception.PanneException;
 import main.Interface.Vehicle;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Optional;
+import java.util.Random;
 
 public class VehicleController {
 
-    private ArrayList<Vehicle> vehicles;
+    private final ArrayList<Vehicle> vehicles;
 
     /**
      * Constructor
@@ -21,93 +23,63 @@ public class VehicleController {
         this.vehicles = vehicles;
     }
 
+
     /**
      * Move all vehicles; a new game trick occurred.
      * Each vehicle final speed depend of current autoroute it is driving.
      *
      * @param autoroutes : list of autoroutes
+     *
+     * @return an array list of all vehicles to remove
      */
-    public void move(final ArrayList<Autoroute> autoroutes) throws PanneException {
-        autoroutes.forEach(autoroute -> {
-            autoroute.getVehicles().forEach(vehicle -> {
-                if (!this.vehicles.contains(vehicle)) {
-                    vehicles.add(vehicle);
-                }
-            });
-        });
-
-
+    public ArrayList<Autoroute> move(final ArrayList<Autoroute> autoroutes) throws PanneException {
+        System.out.println("--------- Move section ---------");
         for (Autoroute autoroute : autoroutes) {
             for (Vehicle vehicle : autoroute.getVehicles()) {
-                generateAccident(vehicle);
-                moveOneVehicle(vehicle.getId(), autoroute);
-
-                if (autoroute.getVehiclesOut().contains(vehicle)) {
-                    Autoroute nextAutoroute = null;
-
-                    if (autoroute.getId() + 1 > autoroutes.size()) {
-                        nextAutoroute = autoroutes.get(autoroute.getId() - 1);
-                    } else {
-                        nextAutoroute = autoroutes.get(autoroute.getId());
-                    }
-
-                    System.out.println(String.format("Le vehicule n°%d va de l'autoroute n°%d à l'autoroute n°%d", vehicle.getId(), autoroute.getId(), nextAutoroute.getId()));
-
-                    for (int gate : nextAutoroute.getAccess().getGates()) {
-                        int positionGate = AutorouteController.getGatePosition(gate, autoroute.getRayon());
-                        if (positionGate < vehicle.getPosition()){
-                            int nextGate = AutorouteController.getGatePosition(gate, nextAutoroute.getRayon());
-                            autoroute.removeVehicleOut(vehicle);
-                            nextAutoroute.addVehicle(vehicle);
-                            vehicle.setStartPosition(nextGate);
-                            vehicle.setPosition(vehicle.getPosition() - nextGate);
-                            vehicle.madeATurn(false);
-                        }
-                    }
-                }
-            }
-        }
+                generatePanne(vehicle);
+                moveOneVehicle(vehicle, autoroute);
+            };
+        };
+        return autoroutes;
     }
+
 
     /**
      * Move just one vehicle following autoroute speed.
      * This method is private, becouse it is a tool of move method.
      *
-     * @param id        ID of the vehicle to move
+     * @param vehicle vehicle to move
      * @param autoroute
+     *
      */
-    private void moveOneVehicle(int id, Autoroute autoroute) {
-        System.out.println("Move vehicle " + id);
+    private void moveOneVehicle(Vehicle vehicle, final Autoroute autoroute) {
 
-        Optional<Vehicle> stream = vehicles
-                .stream()
-                .filter(vehicle_ -> vehicle_.getId() == id)
-                .findFirst();
+        System.out.printf("Move vehicle (%s) n°%d%n", vehicle.getClass().getSimpleName(), vehicle.getId());
 
-        if (stream.isPresent()) {
-            Vehicle vehicle = stream.get();
+        double moveDist = autoroute.getSpeed() * vehicle.getSpeed();
+        int nextPosition = (int) Math.floor(moveDist + vehicle.getPosition());
 
-            double moveDist = autoroute.getSpeed() * vehicle.getSpeed();
-            int nextPosition = (int) Math.floor(moveDist + vehicle.getPosition());
-            if (nextPosition > autoroute.getPerimeter()){
-                nextPosition = (int)(nextPosition - autoroute.getPerimeter());
-                vehicle.madeATurn(true);
-            }
-            if (nextPosition > vehicle.getStartPosition() && vehicle.haveMakeATurn()) {
-                System.out.println(String.format("Le vehicule %d change d'autoroute", vehicle.getId()));
-                autoroute.removeVehicle(vehicle);
-                autoroute.addVehiclesOut(vehicle);
-            }
-            vehicle.setPosition(nextPosition);
-            System.out.println(String.format("Le vehicule n°%d avance de %f et est à la position %d", vehicle.getId(), moveDist, vehicle.getPosition()));
+        if (nextPosition > autoroute.getPerimeter()){
+            nextPosition = (int)(nextPosition - autoroute.getPerimeter());
+            vehicle.madeATurn(true);
         }
+
+        vehicle.setPosition(nextPosition);
+        System.out.printf("Le vehicule n°%d avance de %s et est à la position %d de l'autoroute %d%n", vehicle.getId(), new DecimalFormat("#.##").format(moveDist), vehicle.getPosition(), autoroute.getId());
     }
 
-    private void generateAccident(Vehicle vehicle) throws PanneException {
-        double coef = vehicle.getCoefAccident();
-        float accident = 1;
-        if (accident < 0.005){
-            throw new PanneException("Le vehicule n°"+vehicle.getId()+" a un accident");
+
+    /**
+     * Generate random Panne on vehicle
+     * @param vehicle : vehicle to generate a panne
+     * @throws PanneException : Thrown if a panne occured
+     */
+    private void generatePanne(Vehicle vehicle) throws PanneException {
+        double coeff = vehicle.getCoefPanne();
+
+        double panne = (new Random()).nextDouble();
+        if (panne < coeff){
+            throw new PanneException("Le vehicule n°" + vehicle.getId() + " a eu une panne");
         }
     }
 }
