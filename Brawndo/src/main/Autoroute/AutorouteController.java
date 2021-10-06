@@ -36,9 +36,12 @@ public class AutorouteController {
     private void checkAccident() throws AccidentException {
         for(Autoroute autoroute : autoroutes) {
             // Check if incident
-            ArrayList<Vehicle> arrayOfCollision = checkIfVehiclesAreInSamePosition(autoroute);
-            if (!arrayOfCollision.isEmpty())
-                throw new AccidentException(arrayOfCollision);
+            for(Vehicle v: autoroute.getVehicles()){
+                ArrayList<Vehicle> arrayOfCollision = checkIfVehiclesHaveAccident(autoroute, v);
+                if (!arrayOfCollision.isEmpty())
+                    throw new AccidentException(arrayOfCollision);
+            }
+            
         }
     }
 
@@ -50,13 +53,11 @@ public class AutorouteController {
      * an empty list if there is no collision,
      * else an array containing crashed vehicles.
      */
-    private ArrayList<Vehicle> checkIfVehiclesAreInSamePosition(Autoroute a) {
-        for(Vehicle v : a.getVehicles()) {
-            for(Vehicle vehicle : a.getVehicles()){
-                if (VehicleController.compareTo(v, vehicle, a.getPerimeter())) {
-                    return new ArrayList<Vehicle>(Arrays.asList(v, vehicle));
-                }
-            }   
+    private ArrayList<Vehicle> checkIfVehiclesHaveAccident(Autoroute a, Vehicle v) {
+        for(Vehicle vehicle : a.getVehicles()){
+            if (VehicleController.compareTo(v, vehicle, a.getPerimeter())) {
+                return new ArrayList<Vehicle>(Arrays.asList(v, vehicle));
+            }
         }
         return new ArrayList<Vehicle>();
     }
@@ -98,6 +99,23 @@ public class AutorouteController {
                 addVehicleToAutoroute(nextAutoroute, vehicle);
             }
 
+            // for (Vehicle vehicle : autoroute.getVehicles()) {
+            //     if(this.checkIfVehiclesHaveAccident(autoroute, vehicle).size() > 0){
+            //         System.out.printf("Imminent accident, vehicle %d moving\n", vehicle.getId());
+            //         vehicleToChange.add(this.changeAutoroute(vehicle, autoroute, nextAutoroute));
+            //     }
+            // }
+
+            // for (Object[] vehicleToMove: vehicleToChange){
+            //     if (vehicleToMove == null) continue;
+            //     Vehicle vehicle = (Vehicle)vehicleToMove[0];
+            //     changeVehicle(false,vehicle , autoroute);
+            //     vehicle.setStartPosition((int)vehicleToMove[2]);
+            //     vehicle.setPosition(vehicleController.calculateMoveOnNextAutoroute(vehicle, (int)vehicleToMove[1], (int)vehicleToMove[2]));
+            //     vehicle.madeATurn(false);
+            //     addVehicleToAutoroute(nextAutoroute, vehicle);
+            // }
+
             System.out.printf("%d vehicles on autoroute %d\n", autoroute.getVehicles().size(), autoroute.getId());
         }
 
@@ -112,6 +130,7 @@ public class AutorouteController {
         for(int i = 0; i < currentAutorouteGates.getGates().size();i++) {
             int currentNextGate = currentAutorouteGates.getGates().get(i);
             int positionNextGate = this.getGatePosition(currentAutorouteGates, currentNextGate);
+            System.out.printf("Position next gate -> %d\n", positionNextGate);
             int nextAutorouteGate = this.findNextAutorouteGateAutoroute(nextAutoroute.getAccess(), currentNextGate);
             if (positionNextGate > vehicle.getPosition() || counterModulo == nextAutoroute.getAccess().getGates().size() - 1) {
                 return new Object[]{vehicle, positionNextGate, nextAutorouteGate};

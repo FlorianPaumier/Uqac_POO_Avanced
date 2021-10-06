@@ -97,7 +97,6 @@ public class VehicleController {
             if (v1Position < v1.getPreviousPosition()) v1Position += autoroutePerimeter;
             if (v2Position < v2.getPreviousPosition()) v1Position += autoroutePerimeter;
             if (v1.getPosition() >= v2.getPosition()){
-                System.out.printf("%d >= %d\n", v1.getPosition(), v2.getPosition());
                 return true;
             }
         }
