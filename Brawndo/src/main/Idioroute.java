@@ -16,8 +16,8 @@ public class Idioroute {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        // PrintStream output = new PrintStream("result.txt");
-        // System.setOut(output);
+        PrintStream output = new PrintStream("Log-Final-Incident.txt");
+        System.setOut(output);
 
         System.out.println("Création du système\n");
         ArrayList<Autoroute> autoroutes = (new AutorouteFactory(250)).generate();
